@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+body {
+    background-color: #eeffff;
+    font-family: Verdana, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0px;
+    text-align: center;
+}
+#container {
+    width: 100%;
+    min-width: 800px;
+    height: 100%;
+}
+#header, #footer {
+    display: inline-block;
+    width: 100%;
+    min-width: 800px;
+    padding: 0.3em 0px;
+    background-color: #eeeeee;
+    background-image: url("data:image/png;base64,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");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+}
+#one2two {
+    width: 50%;
+    float: left;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+#two2one {
+    background-color: #ffffee;
+    width: 50%;
+    float: right;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+#missing {
+    position: relative;
+    width: 90%;
+    max-width: 1024px;
+    padding-bottom: 67.5%;
+    margin: 5px auto;
+    background-color: #ffcccc;
+    z-index: 10;
+}
+#missing > div {
+    position: absolute;
+    width: 100%;
+    padding: 1em;
+    z-index: 20;
+}
+img {
+    max-width: 90%;
+    margin: 5px auto;
+    display: block;
+}
+h1 {
+    margin-bottom: 0px;
+}
+h3, p {
+    margin: 0px;
+}
+</style>
+<title>Iperf LAPTOP-UE-1 &#8596; LAPTOP-UE-0 Bandwidth Performance Report</title>
+</head>
+<body>
+<div id="header">
+    <h3>Test Results (5 min per run) [TCP, 1 st.]</h3>
+</div>
+<div id="container">
+    <div id=one2two>
+        <h1>LAPTOP-UE-1 &#8594; LAPTOP-UE-0 Results</h1>
+        <hr>
+        <h2>By Buffer Size</h2>
+        <img src="raw-data/TCP_1_st_2020_10_06_18-56-00_one2two_summary.png">
+        <hr>
+        <h2>By Time</h2>
+        <img src="raw-data/TCP_1_st_2020_10_06_18-56-00_one2two_00032B.png">
+    </div>
+    <div id=two2one>
+        <h1>LAPTOP-UE-0 &#8594; LAPTOP-UE-1 Results</h1>
+        <hr>
+        <h2>By Buffer Size</h2>
+        <img src="raw-data/TCP_1_st_2020_10_06_18-56-00_two2one_summary.png">
+        <hr>
+        <h2>By Time</h2>
+        <img src="raw-data/TCP_1_st_2020_10_06_18-56-00_two2one_00032B.png">
+    </div>
+</div>
+<div id="footer">
+    <p>&#169; Daynix Computing LTD</p>
+</div>
+</body>
+</html>
