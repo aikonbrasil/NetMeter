@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.2, TCP port 5001
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.67.4 port 54408 connected with 192.168.67.2 port 5001
+[  5] local 192.168.67.4 port 54398 connected with 192.168.67.2 port 5001
+[  3] local 192.168.67.4 port 54394 connected with 192.168.67.2 port 5001
+[  6] local 192.168.67.4 port 54400 connected with 192.168.67.2 port 5001
+[  7] local 192.168.67.4 port 54402 connected with 192.168.67.2 port 5001
+[  4] local 192.168.67.4 port 54396 connected with 192.168.67.2 port 5001
+[  9] local 192.168.67.4 port 54406 connected with 192.168.67.2 port 5001
+[  8] local 192.168.67.4 port 54404 connected with 192.168.67.2 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  7]  0.0-61.2 sec  15.0 MBytes  2.05 Mbits/sec
+[  4]  0.0-61.2 sec  14.9 MBytes  2.04 Mbits/sec
+[ 10]  0.0-61.5 sec  13.8 MBytes  1.88 Mbits/sec
+[  5]  0.0-62.1 sec  14.2 MBytes  1.92 Mbits/sec
+[  8]  0.0-62.2 sec  6.62 MBytes   893 Kbits/sec
+[  3]  0.0-62.7 sec  15.0 MBytes  2.01 Mbits/sec
+[  9]  0.0-62.8 sec  13.1 MBytes  1.75 Mbits/sec
+[  6]  0.0-63.3 sec  14.9 MBytes  1.97 Mbits/sec
+[SUM]  0.0-63.3 sec   108 MBytes  14.2 Mbits/sec

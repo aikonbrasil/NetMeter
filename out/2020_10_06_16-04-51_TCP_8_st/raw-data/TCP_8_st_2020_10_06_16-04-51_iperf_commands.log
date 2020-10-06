@@ -1,0 +1,20 @@
+[ 16:35:50 ] cl1: killall -9 iperf
+[ 16:35:51 ] cl2: killall -9 iperf
+[ 16:35:52 ] cl2: iperf -s -i 10 -y C
+[ 16:36:02 ] cl1: iperf -c 192.168.67.4 -t 61 -P 8
+[ 16:37:24 ] cl2: killall -9 iperf
+[ 16:37:35 ] cl2: iperf -s -i 10 -y C
+[ 16:37:45 ] cl1: iperf -c 192.168.67.4 -t 61 -P 8
+[ 16:39:07 ] cl2: killall -9 iperf
+[ 16:39:17 ] cl2: iperf -s -i 10 -y C
+[ 16:39:27 ] cl1: iperf -c 192.168.67.4 -t 61 -P 8
+[ 16:40:40 ] cl2: killall -9 iperf
+[ 16:40:50 ] cl1: iperf -s -i 10 -y C
+[ 16:41:00 ] cl2: iperf -c 192.168.67.2 -t 61 -P 8
+[ 16:42:22 ] cl1: killall -9 iperf
+[ 16:42:33 ] cl1: iperf -s -i 10 -y C
+[ 16:42:43 ] cl2: iperf -c 192.168.67.2 -t 61 -P 8
+[ 16:44:05 ] cl1: killall -9 iperf
+[ 16:44:16 ] cl1: iperf -s -i 10 -y C
+[ 16:44:26 ] cl2: iperf -c 192.168.67.2 -t 61 -P 8
+[ 16:45:48 ] cl1: killall -9 iperf
