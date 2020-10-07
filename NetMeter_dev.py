@@ -694,7 +694,7 @@ def bend_max_size(size, protocol):
 
 def run_server(protocol, init_name, dir_time, conn, tcpwin):
     #iperf_args = ['-s', '-i', '10', '-y', 'C']
-    iperf_args = ['-s', '-i', '10' '-e']
+    iperf_args = ['-s', '-i', '10', '-e']
     protocol_opts = set_protocol_opts(protocol, tcpwin, client = False)
     iperf_args += protocol_opts
     conn_name = conn.getname()
