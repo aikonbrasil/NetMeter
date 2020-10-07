@@ -430,14 +430,19 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
               time_from_start = counter * 10
               counter = counter + 1
-              iperf_data.append([time_from_start, lat_average, lat_stand])
+
+              id_stream_i = tmp_lst[2]
+              id_stream_j = id_stream_i.strip().split(']')
+              id_stream = int(id_stream_j[0])
+              int(tmp_lst[-4 - additional_fields])
+              iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     iperf_data.pop(-1)    
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
 
     iperf_data = np.array(iperf_data)
-    conns = np.unique(iperf_data[:,1])
+    conns = np.unique(iperf_data[:,3])
     num_conn = conns.shape[0]
     if num_conn < streams:
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
