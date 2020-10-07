@@ -406,13 +406,13 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         for line in inputfile:
             tmp_lst = line.strip().split(' ')
             print(len(tmp_lst))
-            if (
-                not tmp_lst[0].isdigit()
-                or len(tmp_lst) != (9 + additional_fields)
-                or (additional_fields and float(tmp_lst[-3]) <= 0)
-                or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
-               ):
-                continue
+            #if (
+            #    not tmp_lst[0].isdigit()
+            #    or len(tmp_lst) != (9 + additional_fields)
+            #    or (additional_fields and float(tmp_lst[-3]) <= 0)
+            #    or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
+            #   ):
+            #    continue
 
             if (len(tmp_lst)>20) and (len(tmp_lst)<37):
               print('entro no loop deseados')
