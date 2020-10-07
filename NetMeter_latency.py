@@ -415,6 +415,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                 continue
 
             if (len(tmp_lst)>20) and (len(tmp_lst)<37):
+              print('entro no loop deseado')
               lat_average_i = tmp_lst[-10]
               lat_avg = lat_average_i.strip().split('/')
               lat_average = float(lat_avg[0])
@@ -430,7 +431,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               time_from_start = counter * 10
               counter = counter + 1
               iperf_data.append([time_from_start, lat_average, lat_stand])
-        iperf_data.pop(-1)    
+    iperf_data.pop(-1)    
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
