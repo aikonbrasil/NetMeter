@@ -673,7 +673,7 @@ def set_protocol_opts(protocol, tcpwin, client = True):
         return []
     elif protocol == 'UDP':
         if client:
-            return ['-u', '-b', '100M']
+            return ['-u', '-b', '1M']
         else:
             return ['-u']
 
