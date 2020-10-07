@@ -367,7 +367,7 @@ def gen_html(title, one2two_summary, two2one_summary, one2two_images, two2one_im
 def get_size_units_factor(num, rate=False):
     factor = 1.0
     if rate:
-        s = 'b/s'
+        s = 'ms'
         thousand = 1000.0
     else:
         s = 'B'
@@ -531,7 +531,7 @@ def plot_iperf_data(passed, plot_type, net_dat_file):
     xtic_explicit = ':xtic(printxsizes($2))'
     xtic = ['', xtic_explicit, xtic_explicit, xtic_explicit]
     point_color = ['blue', 'blue', 'blue', 'magenta']
-    title = ['Mean tot. BW', 'Mean tot. BW', 'Mean tot. BW', 'Approx. BW']
+    title = ['Mean tot. Latency', 'Mean tot. Latency', 'Mean tot. Latency', 'Approx. Latency']
     initial_points = (
                       '     "" using {0}:({1}${2}/rf{3}){4} with points'
                             ' pt 2 ps 1.5 lw 3 lc rgb "{5}" title "{6}", \\\n'
@@ -565,7 +565,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
         rate_format = ''
     except:
         net_rate = '???'
-        rate_units = 'b/s'
+        rate_units = 'ms'
         rate_factor = '1.0'
         rate_format = 'set format y "%.1tx10^%T"\n'
 
@@ -632,7 +632,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
                + rate_format + warning_message +
                '\n'
                'set xlabel "' + x_title + '"\n'
-               'set ylabel "Bandwidth (' + rate_units + ')"\n'
+               'set ylabel "Latency (' + rate_units + ')"\n'
                'set ytics nomirror\n'
                + y2_axis +
                'set key bmargin center horizontal box samplen 1 width -1\n'
@@ -810,7 +810,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
                 #get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
                 (iperf_array) =\
                 get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
-                server_fault = 'too_many'
+                server_fault = ''
                 tot_iperf_mean = 15
                 tot_iperf_stdev = 6
                 if server_fault == 'too_few':
@@ -854,7 +854,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
             print(plot_message)
             np.savetxt(iperf_sumname + '.dat', iperf_tot, fmt='%g',
                        header= ('TestOK ' + print_unit +
-                                'Size(B) BW(b/s) Stdev(b/s) BW(' +
+                                'Size(B) L(ms) Stdev(ms) BW(' +
                                 rate_units + ')'))
 
             if localpart:
