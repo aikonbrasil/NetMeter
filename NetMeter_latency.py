@@ -797,6 +797,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
                 get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
                 server_fault = 'too_many'
                 tot_iperf_mean = 15
+                tot_iperf_stdev = 6
                 if server_fault == 'too_few':
                     print('\033[93mWARNING:\033[0m The server received fewer connections than expected.')
                 elif server_fault == 'too_many':
