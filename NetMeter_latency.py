@@ -405,7 +405,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
             tmp_lst = line.strip().split(' ')
-            print(tmp_lst)
+            print(len(tmp_lst))
             if (
                 not tmp_lst[0].isdigit()
                 or len(tmp_lst) != (9 + additional_fields)
