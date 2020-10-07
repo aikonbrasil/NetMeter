@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 #
 # Copyright (c) 2015, Daynix Computing LTD (www.daynix.com)
+# Edited by Dick Carrillo 2020
 # All rights reserved.
 #
-# Maintained by oss@daynix.com
 #
 # For documentation please refer to README.md available at https://github.com/daynix/NetMeter
 #
@@ -24,69 +24,6 @@ from ntpath import dirname, basename
 from NetMeterConfig import *
 
 rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-logo = (
-        'data:image/png;base64,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'
-        'SUVORK5CYII='
-       )
 
 
 class Connect(object):
@@ -353,7 +290,7 @@ def gen_html(title, one2two_summary, two2one_summary, one2two_images, two2one_im
                '    min-width: 800px;\n'
                '    padding: 0.3em 0px;\n'
                '    background-color: #eeeeee;\n'
-               '    background-image: url("' + logo + '");\n'
+               '    background-image: url("' '");\n'
                '    background-repeat: no-repeat;\n'
                '    background-position: 10px 50%;\n'
                '}\n'
@@ -418,7 +355,7 @@ def gen_html(title, one2two_summary, two2one_summary, one2two_images, two2one_im
     content += (
                 '</div>\n'
                 '<div id="footer">\n'
-                '    <p>&#169; Daynix Computing LTD</p>\n'
+                '    <p>&#169;  </p>\n'
                 '</div>\n'
                 '</body>\n'
                 '</html>\n'
