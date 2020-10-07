@@ -414,22 +414,23 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                ):
                 continue
 
-            if (tmp_lst==32):
-              lat_average_i = tmp_lst[22]
+            if (len(tmp_lst)>20) and (len(tmp_lst)<37):
+              lat_average_i = tmp_lst[-10]
               lat_avg = lat_average_i.strip().split('/')
               lat_average = float(lat_avg[0])
 
-              lat_min_max_i = tmp_lst[23]
+              lat_min_max_i = tmp_lst[-9]
               lat_minmax = lat_min_max_i.strip().split('/')
               lat_minim = float(lat_minmax[0])
               lat_maxim = float(lat_minmax[1])
 
-              lat_std = tmp_lst[24]
+              lat_std = tmp_lst[-8]
               lat_stand = float(lat_std)
 
               time_from_start = counter * 10
               counter = counter + 1
               iperf_data.append([time_from_start, lat_average, lat_stand])
+        iperf_data.pop(-1)    
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
