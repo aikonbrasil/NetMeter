@@ -404,7 +404,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
-            tmp_lst = line.strip().split(' ')
+            tmp_lst = line.strip().split('/')
             print(len(tmp_lst))
             #if (
             #    not tmp_lst[0].isdigit()
@@ -414,26 +414,39 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
             #   ):
             #    continue
 
-            if (len(tmp_lst)>20) and (len(tmp_lst)<37):
-              print('entro no loop deseados')
-              lat_average_i = tmp_lst[-10]
-              lat_avg = lat_average_i.strip().split('/')
-              lat_average = float(lat_avg[0])
+            if (len(tmp_lst)>5):
+            #if (len(tmp_lst)>20) and (len(tmp_lst)<37):
+              print('entro no loop deseado...')
+              lat_average_i = tmp_lst[-4]
+              lat_avg = lat_average_i.strip().split(' ')
+              #lat_average_i = tmp_lst[-10]
+              #lat_avg = lat_average_i.strip().split('/')
+              lat_average = float(lat_avg[-1])
 
-              lat_min_max_i = tmp_lst[-9]
-              lat_minmax = lat_min_max_i.strip().split('/')
-              lat_minim = float(lat_minmax[0])
-              lat_maxim = float(lat_minmax[1])
+              lat_minim = float(tmp_lst[-3])
 
-              lat_std = tmp_lst[-8]
-              lat_stand = float(lat_std)
+              lat_maxim = float(tmp_lst[-2])
+
+              lat_std_i = tmp_lst[-1]
+              lat_std = lat_std_i.strip().split(' ')
+              lat_stand = float(lat_std[0])
+
+              #lat_min_max_i = tmp_lst[-9]
+              #lat_minmax = lat_min_max_i.strip().split('/')
+              #lat_minim = float(lat_minmax[0])
+              #lat_maxim = float(lat_minmax[1])
+
+              #lat_std = tmp_lst[-8]
+              #lat_stand = float(lat_std)
 
               time_from_start = counter * 10
               counter = counter + 1
 
-              id_stream_i = tmp_lst[2]
+              id_stream_i = tmp_lst[0]
               id_stream_j = id_stream_i.strip().split(']')
-              id_stream = int(id_stream_j[0])
+              id_stream_ji = id_stream_j[0]
+              id_stream_jid = id_stream_ji.strip().split('[')
+              id_stream = int(id_stream_jid[0])
               print('paso ok aqui ')
               iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     iperf_data.pop(-1)    
