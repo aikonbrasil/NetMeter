@@ -19,13 +19,13 @@ export_dir = 'out'
 
 # IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
-cl1_conn_ip = '192.168.10.20'
-cl2_conn_ip = '192.168.11.20'
+cl1_conn_ip = '192.168.67.2'
+cl2_conn_ip = '100.100.100.10'
 
 # IPs of the clients for testing (may use the same as for connection). [str]
 # Example: '192.168.100.11'
-cl1_test_ip = '192.168.10.20'
-cl2_test_ip = '192.168.11.20'
+cl1_test_ip = '192.168.67.2'
+cl2_test_ip = '100.100.100.10'
 
 # Paths to the Iperf executables on the clients. [raw str]
 # Example: r'C:\iperf\iperf.exe'
@@ -38,21 +38,21 @@ gnuplot_bin = 'gnuplot'
 
 # A list of packet sizes to test (preferably as powers of 2). [iterable]
 # Example: [2**x for x in range(5,17)]  (For sizes of 32B to 64KB)
-test_range = [2**x for x in range(5,8)]
+test_range = [2**x for x in range(5,6)]
 
 # The duration of a single run, in seconds. Must be at least 20, preferable at least 120. [int]
 # Example: 300
-run_duration = 600
+run_duration = 60
 
 # The desired numbers of streams. [iterable]
 # Example: [1, 4]
-streams = [1,3,5,8]
+streams = [1]
 
 # The desired protocol(s). [iterable]
 # The value MUST be one of 3: ['TCP'] | ['UDP'] | ['TCP', 'UDP']
 #protocols = ['TCP', 'UDP']
 # if PANDABOARD is being used, only TCP is ok.
-protocols = ['TCP']
+protocols = ['UDP']
 
 # The desired TCP window size. [str or None].
 # Set to None for default. Example: '1M'.
@@ -69,7 +69,7 @@ access_method_cl2 = 'ssh'
 # Remote access port (needed only for ssh access). [str]
 # Example: '22'
 ssh_port_cl1 = '2222'
-ssh_port_cl2 = '2222'
+ssh_port_cl2 = '22'
 
 # A path to the credentials file for remote access. [str]
 # This file should contain two or three lines:
@@ -90,8 +90,8 @@ title = 'Test Results (5 min per run)'
 # Pretty names for the clients. Should be as short as possible, and informative -
 # they will appear on the plots and the report. [str]
 # Examples: 'Ubuntu VM', 'e1000e', 'Win 2012'
-cl1_pretty_name = 'LAPTOP-LAN-IP-10.20'
-cl2_pretty_name = 'LAPTOP-LAN-IP-11.20'
+cl1_pretty_name = 'LAPTOP-UE-1'
+cl2_pretty_name = 'LAPTOP-UE-0'
 
 # Shut down the the clients when all tests are over?
 # This is useful when doing long/overnight tests. [bool]
