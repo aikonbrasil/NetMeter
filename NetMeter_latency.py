@@ -434,7 +434,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               id_stream_i = tmp_lst[2]
               id_stream_j = id_stream_i.strip().split(']')
               id_stream = int(id_stream_j[0])
-              int(tmp_lst[-4 - additional_fields])
+              print('paso ok aqui ')
               iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     iperf_data.pop(-1)    
 
@@ -448,7 +448,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
-
+    print( 'paso bien por la funcion' )
     return iperf_data
 
 
