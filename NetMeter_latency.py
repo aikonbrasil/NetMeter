@@ -448,7 +448,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               id_stream_ji = id_stream_j[0]
               id_stream_jid = id_stream_ji.strip().split('[')
               print(id_stream_jid)
-              id_stream = int(id_stream_jid)
+              id_stream = int(id_stream_jid[1])
               print('paso ok aqui ')
               iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     iperf_data.pop(-1)    
