@@ -451,7 +451,9 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
               #To GET THE TIME FROM START
               #time_from_start = counter * 10
-              #counter = counter + 1
+              print('counter ...')
+              print(counter)
+              counter = counter + 1
               time_start_i = id_stream_i.strip().split(' ')
               print('time to start inicial')
               print(time_start_i)
@@ -460,7 +462,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               print(time_start_iii)
 
               time_from_start = time_start_iii[0]
-              time_from_end = time_start_iii[0]
+              time_from_end = time_start_iii[1]
               print('time to start')
               print(time_from_start)
               print('time to End')
