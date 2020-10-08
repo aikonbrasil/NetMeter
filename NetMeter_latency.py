@@ -463,7 +463,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               print('time to End')
               print(time_from_end)
 
-              if (time_from_end-time_from_start) != 10 #Interval greater than 10 sec.
+              if ((time_from_end-time_from_start) != 10): #Interval greater than 10 sec.
                   print('paso ok aqui ')
                   iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
 
