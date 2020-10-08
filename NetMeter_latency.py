@@ -405,8 +405,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
             tmp_lst = line.strip().split('/')
-            print(len(tmp_lst))
-            print(tmp_lst)
+            #print(len(tmp_lst))
+            #print(tmp_lst)
             #if (
             #    not tmp_lst[0].isdigit()
             #    or len(tmp_lst) != (9 + additional_fields)
@@ -452,25 +452,25 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
               #To GET THE TIME FROM START
               #time_from_start = counter * 10
-              print('counter ...')
-              print(counter)
+              #print('counter ...')
+              #print(counter)
               counter = counter + 1
               time_start_i = id_stream_i.strip().split(' ')
-              print('time to start inicial')
-              print(time_start_i)
+              #print('time to start inicial')
+              #print(time_start_i)
               time_start_ii = time_start_i[3]
               time_start_iii = time_start_ii.strip().split('-')
-              print(time_start_iii)
+              #print(time_start_iii)
 
               time_from_start = float(time_start_iii[0])
               time_from_end = float(time_start_iii[1])
-              print('time to start')
-              print(time_from_start)
-              print('time to End')
-              print(time_from_end)
+              #print('time to start')
+              #print(time_from_start)
+              #print('time to End')
+              #print(time_from_end)
 
               if ((time_from_end-time_from_start) == 10): #Interval greater than 10 sec.
-                  print('paso ok aqui ')
+                  #print('paso ok aqui ')
                   iperf_data.append([ time_from_start, lat_average, lat_stand, id_stream ])
 
 
@@ -494,7 +494,78 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
     print('iperf_data initial antes del pre processamiento')    
     print(iperf_data)
-    
+
+    # Sort by connection number, then by date. Get indices of the result.
+    bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,3]))
+    iperf_data = iperf_data[bi_sorted_indices]
+    print('Sorted by connection number and then by date')
+    print(iperf_data)
+
+    ### Mechanism to check if too few or too many connections received
+    # Get the index of the line after the last of each connection
+    conn_ranges = np.searchsorted(iperf_data[:,3], conns, side='right')
+    print('print of conn_ranges')
+    print(conn_ranges)
+
+    # Get sizes of connection blocks
+    conn_count = np.diff(np.insert(conn_ranges, 0, 0))
+    server_fault = False
+    conn_reached = conn_count.min()
+    print('print of conn_count')
+    print(conn_count)
+    print('print of conn_reached')
+    print(conn_reached)
+
+    if conn_reached < repetitions:
+        # If there was at least one occasion when there were fewer connections than expected
+        server_fault = 'too_few'
+        repetitions = conn_reached
+
+    # Get indices of connection block sizes that are bigger than expected (if any)
+    where_extra_conn = (conn_count > repetitions).nonzero()[0]
+    print(repetitions)
+    print(conn_count)
+    print(where_extra_conn)
+    if where_extra_conn.size:
+        print('Entro al loop donde modifica el iperf_data')
+        ## If there were connection blocks bigger than expected
+        # Get indices of lines after the last (n+1) for removal
+        remove_before_lines = conn_ranges[where_extra_conn]
+        # Get the amount of extra lines
+        amount_lines_to_remove = [remove_before_lines[0] - repetitions * (where_extra_conn[0] + 1)]
+        for i in where_extra_conn[1:]:
+            amount_lines_to_remove.append(conn_ranges[i] - repetitions * (i + 1) - sum(amount_lines_to_remove))
+
+        # Get the first lines to remove
+        first_for_removal = remove_before_lines - amount_lines_to_remove
+        # Get the ranges of lines to remove
+        lines_to_remove = np.array([
+                                    np.arange(first_for_removal[i],remove_before_lines[i])
+                                    for i in np.arange(first_for_removal.size)
+                                   ]).flatten()
+        # Remove the extra lines
+        iperf_data = np.delete(iperf_data, lines_to_remove, axis=0)
+        if not server_fault:
+            server_fault = 'too_many'
+
+    print('final modifications iperf_data...')
+    print(iperf_data)
+    ### End connection ammount check
+    iperf_data = iperf_data[:,[0,1]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    print('Number of Connections (num_conn')
+    print(num_conn)
+    print('ammount checking...')
+    print(iperf_data)
+    iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
+    print('ammount after masked array...')
+    print(iperf_data)
+    mean_times = np.mean(iperf_data[:,:,0], axis=0)
+    iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
+    out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
+    print(mean_times)
+    print(iperf_stdev)
+    print(out_arr)
+
     return iperf_data
 
 
