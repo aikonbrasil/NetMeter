@@ -437,17 +437,27 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
-
+    print('Original iperf_data vector...')
+    print(iperf_data)
     # Sort by connection number, then by date. Get indices of the result.
     bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,1]))
     iperf_data = iperf_data[bi_sorted_indices]
+    print('Sorted by connection number and then by date')
+
+
     ### Mechanism to check if too few or too many connections received
     # Get the index of the line after the last of each connection
     conn_ranges = np.searchsorted(iperf_data[:,1], conns, side='right')
+    print('print of conn_ranges')
+    print(conn_ranges)
+
     # Get sizes of connection blocks
     conn_count = np.diff(np.insert(conn_ranges, 0, 0))
     server_fault = False
     conn_reached = conn_count.min()
+    print(conn_count)
+    print(conn_reached)
+
     if conn_reached < repetitions:
         # If there was at least one occasion when there were fewer connections than expected
         server_fault = 'too_few'
@@ -455,7 +465,11 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
     # Get indices of connection block sizes that are bigger than expected (if any)
     where_extra_conn = (conn_count > repetitions).nonzero()[0]
+    print(repetitions)
+    print(conn_count)
+    print(where_extra_conn)
     if where_extra_conn.size:
+        print('Entro al loop donde modifica el iperf_data')
         ## If there were connection blocks bigger than expected
         # Get indices of lines after the last (n+1) for removal
         remove_before_lines = conn_ranges[where_extra_conn]
@@ -476,12 +490,21 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         if not server_fault:
             server_fault = 'too_many'
 
+    print('final modifications iperf_data...')
+    print(iperf_data)
     ### End connection ammount check
     iperf_data = iperf_data[:,[0,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    print('ammount checking...')
+    print(iperf_data)
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
+    print('ammount after masked array...')
+    print(iperf_data)
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
     iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
     out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
+    print(mean_times)
+    print(iperf_stdev)
+    print(out_arr)
     return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
 
 
