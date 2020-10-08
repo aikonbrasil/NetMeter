@@ -406,6 +406,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         for line in inputfile:
             tmp_lst = line.strip().split('/')
             print(len(tmp_lst))
+            print(tmp_lst)
             #if (
             #    not tmp_lst[0].isdigit()
             #    or len(tmp_lst) != (9 + additional_fields)
@@ -461,8 +462,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               time_start_iii = time_start_ii.strip().split('-')
               print(time_start_iii)
 
-              time_from_start = time_start_iii[0]
-              time_from_end = time_start_iii[1]
+              time_from_start = int(time_start_iii[0])
+              time_from_end = int(time_start_iii[1])
               print('time to start')
               print(time_from_start)
               print('time to End')
