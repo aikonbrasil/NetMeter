@@ -439,9 +439,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               #lat_std = tmp_lst[-8]
               #lat_stand = float(lat_std)
 
-              time_from_start = counter * 10
-              counter = counter + 1
 
+              # TO GET THE STREAM ID
               id_stream_i = tmp_lst[0]
               id_stream_j = id_stream_i.strip().split(']')
               print(id_stream_j[0])
@@ -449,8 +448,29 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               id_stream_jid = id_stream_ji.strip().split('[')
               print(id_stream_jid)
               id_stream = int(id_stream_jid[1])
-              print('paso ok aqui ')
-              iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
+
+              #To GET THE TIME FROM START
+              #time_from_start = counter * 10
+              #counter = counter + 1
+              time_start_i = id_stream_i.strip().split(' ')
+              time_start_ii = time_start_i[5]
+              time_start_iii = time_start_ii.strip().split('-')
+
+              time_from_start = time_start_iii[0]
+              time_from_end = time_start_iii[0]
+              print('time to start')
+              print(time_from_start)
+              print('time to End')
+              print(time_from_end)
+
+              if (time_from_end-time_from_start) != 10 #Interval greater than 10 sec.
+                  print('paso ok aqui ')
+                  iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
+
+
+
+             # print('paso ok aqui ')
+              #iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     iperf_data.pop(-1)    
 
     if not iperf_data:
