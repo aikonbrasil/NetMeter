@@ -471,15 +471,14 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
               if ((time_from_end-time_from_start) == 10): #Interval greater than 10 sec.
                   print('paso ok aqui ')
-                  iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
+                  iperf_data.append([ time_from_start, lat_average, lat_stand, id_stream ])
 
 
 
              # print('paso ok aqui ')
               #iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
     #iperf_data.pop(-1)
-    print('iperf_data initial antes del pre processamiento')    
-    print(iperf_data)
+
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
@@ -492,6 +491,10 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
     print( 'paso bien por la funcion' )
+
+    print('iperf_data initial antes del pre processamiento')    
+    print(iperf_data)
+    
     return iperf_data
 
 
