@@ -610,7 +610,7 @@ def get_mpstat_data_single(mpstat_out):
 
 
 def export_single_data(data_processed, data_outname):
-    np.savetxt(data_outname, data_processed, fmt='%g', header='TimeStamp(s) Sum Stdev')
+    np.savetxt(data_outname, data_processed, fmt='%g', header='TimeStamp(s) Latency-avg(ms) Stdev')
 
 
 def plot_iperf_data(passed, plot_type, net_dat_file):
