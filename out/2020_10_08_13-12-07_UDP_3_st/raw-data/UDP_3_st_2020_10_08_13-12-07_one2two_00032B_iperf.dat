@@ -1,0 +1,33 @@
+------------------------------------------------------------
+Server listening on UDP port 5001 with pid 11074
+Receiving 1470 byte datagrams
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 100.100.100.10 port 5001 connected with 192.168.67.2 port 55816
+[  4] local 100.100.100.10 port 5001 connected with 192.168.67.2 port 53691
+[  5] local 100.100.100.10 port 5001 connected with 192.168.67.2 port 57931
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   4.408 ms    0/  891 (0%) 37.735/23.022/62.819/ 8.468 ms   89 pps  3.48
+[  3] 0.0000-10.0000 sec  2 datagrams received out-of-order
+[  4] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   3.984 ms    0/  891 (0%) 37.547/22.289/62.759/ 8.461 ms   89 pps  3.49
+[  5] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   5.371 ms    2/  891 (0.22%) 37.927/17.266/65.326/ 8.678 ms   89 pps  3.45
+[SUM] 0.0000-10.0000 sec  3.75 MBytes  3.14 Mbits/sec  2/2673        0 pps
+[SUM] 0.0000-10.0000 sec  2 datagrams received out-of-order
+[  3] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec   4.481 ms    0/  894 (0%) 37.005/22.536/61.733/ 7.656 ms   89 pps  3.55
+[  5] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec   5.696 ms    0/  894 (0%) 37.663/23.310/65.244/ 7.834 ms   89 pps  3.49
+[  4] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec   5.083 ms    0/  894 (0%) 37.045/22.438/65.340/ 7.740 ms   89 pps  3.55
+[SUM] 10.0000-20.0000 sec  3.76 MBytes  3.15 Mbits/sec  0/2682        0 pps
+[  3] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.330 ms    0/  890 (0%) 37.017/21.636/61.543/ 8.175 ms   89 pps  3.53
+[  4] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   4.989 ms    0/  890 (0%) 37.079/23.253/61.483/ 8.162 ms   89 pps  3.53
+[  5] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   5.365 ms    0/  890 (0%) 37.633/22.430/63.381/ 8.352 ms   89 pps  3.48
+[SUM] 20.0000-30.0000 sec  3.74 MBytes  3.14 Mbits/sec  0/2670        0 pps
+[  3] 30.0000-40.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.639 ms    0/  892 (0%) 36.809/17.880/61.889/ 7.873 ms   89 pps  3.56
+[  4] 30.0000-40.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.456 ms    0/  892 (0%) 36.967/21.956/60.546/ 7.977 ms   89 pps  3.55
+[  5] 30.0000-40.0000 sec  1.25 MBytes  1.05 Mbits/sec   7.124 ms    0/  892 (0%) 37.118/20.868/61.768/ 7.951 ms   89 pps  3.53
+[SUM] 30.0000-40.0000 sec  3.75 MBytes  3.15 Mbits/sec  0/2676        0 pps
+[  3] 0.0000-40.9949 sec  5.13 MBytes  1.05 Mbits/sec   6.984 ms    0/ 3656 (0%) 37.123/17.880/62.819/ 8.083 ms   89 pps  3.53
+[  3] 0.0000-40.9949 sec  2 datagrams received out-of-order
+[  4] 0.0000-41.0037 sec  5.13 MBytes  1.05 Mbits/sec   6.802 ms    0/ 3656 (0%) 37.136/18.199/65.340/ 8.128 ms   89 pps  3.53
+[  5] 0.0000-40.9990 sec  5.12 MBytes  1.05 Mbits/sec   6.636 ms    2/ 3656 (0.055%) 37.574/17.266/65.326/ 8.228 ms   89 pps  3.49
+[SUM] 0.0000-41.0037 sec  15.4 MBytes  3.15 Mbits/sec  2/10968        0 pps
+[SUM] 0.0000-41.0037 sec  2 datagrams received out-of-order
