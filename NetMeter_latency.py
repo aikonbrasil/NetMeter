@@ -462,8 +462,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               time_start_iii = time_start_ii.strip().split('-')
               print(time_start_iii)
 
-              time_from_start = int(time_start_iii[0])
-              time_from_end = int(time_start_iii[1])
+              time_from_start = float(time_start_iii[0])
+              time_from_end = float(time_start_iii[1])
               print('time to start')
               print(time_from_start)
               print('time to End')
