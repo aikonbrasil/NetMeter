@@ -560,8 +560,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     print('ammount after masked array...')
     print(iperf_data)
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
-    iperf_stdev = np.mean(iperf_data[:,:,2], axis=0) * np.sqrt(num_conn)
-    out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
+    iperf_stdev = np.mean(iperf_data[:,:,2], axis=0) #* np.sqrt(num_conn)
+    out_arr = np.vstack((mean_times, iperf_data[:,:,1].mean(axis=0), iperf_stdev)).filled(np.nan).T
     print(mean_times)
     print(iperf_stdev)
     print(out_arr)
