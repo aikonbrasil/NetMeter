@@ -444,10 +444,10 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
               # TO GET THE STREAM ID
               id_stream_i = tmp_lst[0]
               id_stream_j = id_stream_i.strip().split(']')
-              print(id_stream_j[0])
+              #print(id_stream_j[0])
               id_stream_ji = id_stream_j[0]
               id_stream_jid = id_stream_ji.strip().split('[')
-              print(id_stream_jid)
+              #print(id_stream_jid)
               id_stream = int(id_stream_jid[1])
 
               #To GET THE TIME FROM START
@@ -551,7 +551,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     print('final modifications iperf_data...')
     print(iperf_data)
     ### End connection ammount check
-    iperf_data = iperf_data[:,[0,1]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    iperf_data = iperf_data[:,[0,1,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
     print('Number of Connections (num_conn')
     print(num_conn)
     print('ammount checking...')
@@ -560,13 +560,14 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     print('ammount after masked array...')
     print(iperf_data)
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
-    iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
+    iperf_stdev = np.mean(iperf_data[:,:,2], axis=0) * np.sqrt(num_conn)
     out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
     print(mean_times)
     print(iperf_stdev)
     print(out_arr)
 
-    return iperf_data
+    #return iperf_data
+    return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
 
 
 
@@ -908,13 +909,13 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
                 else:
                     mpstat_single_file = None
 
-                #(iperf_array, tot_iperf_mean, tot_iperf_stdev, server_fault) =\
-                #get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
-                (iperf_array) =\
+                (iperf_array, tot_iperf_mean, tot_iperf_stdev, server_fault) =\
                 get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
+                #(iperf_array) =\
+                #get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
                 server_fault = ''
-                tot_iperf_mean = 15
-                tot_iperf_stdev = 6
+                #tot_iperf_mean = 15
+                #tot_iperf_stdev = 6
                 if server_fault == 'too_few':
                     print('\033[93mWARNING:\033[0m The server received fewer connections than expected.')
                 elif server_fault == 'too_many':
