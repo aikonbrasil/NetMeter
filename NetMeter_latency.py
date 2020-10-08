@@ -551,7 +551,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     print('final modifications iperf_data...')
     print(iperf_data)
     ### End connection ammount check
-    iperf_data = iperf_data[:,[0,1,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    iperf_data = iperf_data[:,[0,1,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 3))
     print('Number of Connections (num_conn')
     print(num_conn)
     print('ammount checking...')
