@@ -443,6 +443,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,1]))
     iperf_data = iperf_data[bi_sorted_indices]
     print('Sorted by connection number and then by date')
+    print(iperf_data)
 
 
     ### Mechanism to check if too few or too many connections received
@@ -455,7 +456,9 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     conn_count = np.diff(np.insert(conn_ranges, 0, 0))
     server_fault = False
     conn_reached = conn_count.min()
+    print('print of conn_count')
     print(conn_count)
+    print('print of conn_reached')
     print(conn_reached)
 
     if conn_reached < repetitions:
@@ -494,6 +497,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     print(iperf_data)
     ### End connection ammount check
     iperf_data = iperf_data[:,[0,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    print('Number of Connections (num_conn')
+    print(num_conn)
     print('ammount checking...')
     print(iperf_data)
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
