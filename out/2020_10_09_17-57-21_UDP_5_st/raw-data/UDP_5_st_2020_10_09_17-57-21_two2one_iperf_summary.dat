@@ -1,0 +1,3 @@
+# TestOK DatagramSize(B) L(ms) Stdev(ms) BW(ms)
+1 32 16.1752 1.27998 16.1752
+1 64 15.9964 0.737814 15.9964
