@@ -862,7 +862,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
     tprint('\033[92mStarting ' + protocol + ' tests.\033[0m Expected run time: ' + series_time)
     print('NAME OF VAARIBALE')
     print(cl1_conn)
-    top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st' + test_title
+    top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st_' + test_title
     common_filename = protocol + '_' + str(streams) + '_st_' + timestamp
     print_unit = 'Buffer' if protocol == 'TCP' else 'Datagram'
     raw_data_subdir="raw-data"
@@ -1044,7 +1044,7 @@ if __name__ == "__main__":
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name[7:11]+'2'+cl2_pretty_name[7:11]
+    title = cl1_pretty_name[7:11]+'_2_'+cl2_pretty_name[7:11]
     testinsts = Multitest(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1070,7 +1070,7 @@ if __name__ == "__main__":
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'2'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl3_conn, cl1_test_ip, cl3_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1096,7 +1096,7 @@ if __name__ == "__main__":
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'2'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl4_conn, cl1_test_ip, cl4_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1122,7 +1122,7 @@ if __name__ == "__main__":
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'2'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl6_conn, cl1_test_ip, cl6_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
