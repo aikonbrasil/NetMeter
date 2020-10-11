@@ -1027,6 +1027,7 @@ if __name__ == "__main__":
   # TESTE 01
     # Interrupt handling
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+    cl2_pretty_name = cl2_pretty_name
 
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1050,6 +1051,7 @@ if __name__ == "__main__":
 
 
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+    cl2_pretty_name = cl3_pretty_name
 
   # TESTE 02
     signal.signal(signal.SIGINT, interrupt_exit)
@@ -1075,7 +1077,7 @@ if __name__ == "__main__":
 
 
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-
+    cl2_pretty_name = cl4_pretty_name
   # TESTE 03
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1100,7 +1102,7 @@ if __name__ == "__main__":
 
 
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-
+    cl2_pretty_name = cl6_pretty_name
   # TESTE 04
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
