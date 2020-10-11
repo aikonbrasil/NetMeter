@@ -860,7 +860,9 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
               streams, timestamp, test_title, protocol, tcpwin, export_dir):
     series_time = str(timedelta(seconds = 2 * len(p_sizes) * (runtime + 30) + 20))
     tprint('\033[92mStarting ' + protocol + ' tests.\033[0m Expected run time: ' + series_time)
-    top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st'+cl1_conn+'2'+cl2_conn
+    print('NAME OF VAARIBALE')
+    print(cl1_conn)
+    top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st' #+cl1_conn+'2'+cl2_conn
     common_filename = protocol + '_' + str(streams) + '_st_' + timestamp
     print_unit = 'Buffer' if protocol == 'TCP' else 'Datagram'
     raw_data_subdir="raw-data"
