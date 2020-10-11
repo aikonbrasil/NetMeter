@@ -1076,7 +1076,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
     cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
-    cl4_conn = Connect(access_method_cl4, cl4conn_ip, 'cl4', cl4_iperf, ssh_port_cl4, creds_cl4)
+    cl4_conn = Connect(access_method_cl4, cl4_conn_ip, 'cl4', cl4_iperf, ssh_port_cl4, creds_cl4)
     # Write message
     if (len(protocols) > 1) or (len(streams) > 1):
         total_time = str(timedelta(seconds = (2 * len(test_range) * (run_duration + 32) + 20) *
