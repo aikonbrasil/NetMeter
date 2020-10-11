@@ -23,7 +23,7 @@ from ntpath import dirname, basename
 # Import configuration
 from NetMeterMultipleConfig import *
 
-rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+#rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
 
 class Connect(object):
@@ -1026,6 +1026,8 @@ class Multitest(object):
 if __name__ == "__main__":
   # TESTE 01
     # Interrupt handling
+    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
     cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
@@ -1047,6 +1049,7 @@ if __name__ == "__main__":
 
 
 
+    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
   # TESTE 02
     signal.signal(signal.SIGINT, interrupt_exit)
@@ -1071,6 +1074,7 @@ if __name__ == "__main__":
 
 
 
+    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
   # TESTE 03
     signal.signal(signal.SIGINT, interrupt_exit)
@@ -1095,6 +1099,7 @@ if __name__ == "__main__":
 
 
 
+    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
   # TESTE 04
     signal.signal(signal.SIGINT, interrupt_exit)
