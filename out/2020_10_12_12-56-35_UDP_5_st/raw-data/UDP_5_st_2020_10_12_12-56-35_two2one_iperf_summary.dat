@@ -1,3 +1,0 @@
-# TestOK DatagramSize(B) BW(b/s) Stdev(b/s) BW(Mb/s)
-0 32 535426 43454.6 0.535426
-1 64 542151 44866.9 0.542151
