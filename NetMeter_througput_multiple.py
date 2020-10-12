@@ -951,7 +951,8 @@ if __name__ == "__main__":
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name[7:11]+'_2_'+cl2_pretty_name[7:11]
+    #title = cl1_pretty_name[7:11]+'_2_'+cl2_pretty_name[7:11]
+    title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1005,6 +1006,34 @@ if __name__ == "__main__":
     # Run tests
     title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl4_conn, cl1_test_ip, cl4_test_ip,
+                          run_duration, test_range, rundate, title,
+                          tcp_win_size, export_dir)
+    testinsts.run_tests_for_streams(streams, protocols)
+
+
+
+
+
+
+
+    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+    cl2_pretty_name = cl5_pretty_name
+  # TESTE 04
+    signal.signal(signal.SIGINT, interrupt_exit)
+    # Getting connections
+    cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
+    cl5_conn = Connect(access_method_cl5, cl5_conn_ip, 'cl5', cl5_iperf, ssh_port_cl5, creds_cl5)
+    # Write message
+    if (len(protocols) > 1) or (len(streams) > 1):
+        total_time = str(timedelta(seconds = (2 * len(test_range) * (run_duration + 32) + 20) *
+                         len(protocols) * len(streams)))
+        tprint('\033[92mStarting tests for protocols: ' + ', '.join(protocols) + '.\033[0m')
+        tprint('\033[92mUsing ' + ','.join(str(s) for s in streams) + ' stream(s).\033[0m')
+        tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
+
+    # Run tests
+    title = cl1_pretty_name+'_2_'+cl2_pretty_name
+    testinsts = Multitest(cl1_conn, cl5_conn, cl1_test_ip, cl5_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
     testinsts.run_tests_for_streams(streams, protocols)
