@@ -1,0 +1,35 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.6, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  7] local 100.100.100.10 port 42630 connected with 192.168.67.6 port 5001
+[  8] local 100.100.100.10 port 59268 connected with 192.168.67.6 port 5001
+[  3] local 100.100.100.10 port 45433 connected with 192.168.67.6 port 5001
+[  6] local 100.100.100.10 port 42631 connected with 192.168.67.6 port 5001
+[  4] local 100.100.100.10 port 42310 connected with 192.168.67.6 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  8]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  8] Sent 53588 datagrams
+[  3]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  3] Sent 53588 datagrams
+[  4]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  4] Sent 53588 datagrams
+[  8] Server Report:
+[  8] 0.0000-600.9921 sec  75.1 MBytes  1.05 Mbits/sec   2.581 ms    0/53588 (0%) 15.611/12.617/128.186/ 0.075 ms   89 pps  8.40
+[  8] 0.0000-600.9921 sec  1 datagrams received out-of-order
+[  3] Server Report:
+[  3] 0.0000-600.9921 sec  75.1 MBytes  1.05 Mbits/sec   2.609 ms    2/53588 (0.0037%) 15.620/12.646/128.257/ 0.278 ms   89 pps  8.39
+[  4] Server Report:
+[  4] 0.0000-600.9922 sec  75.1 MBytes  1.05 Mbits/sec   2.578 ms    0/53588 (0%) 15.629/12.738/128.182/ 0.190 ms   89 pps  8.39
+[  7]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  7] Sent 53588 datagrams
+[  6]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  6] Sent 53588 datagrams
+[SUM]  0.0-601.0 sec   376 MBytes  5.24 Mbits/sec
+[SUM] Sent 267940 datagrams
+[  7] Server Report:
+[  7] 0.0000-600.9921 sec  75.1 MBytes  1.05 Mbits/sec   2.582 ms    0/53588 (0%) 15.611/12.631/128.211/ 0.225 ms   89 pps  8.40
+[  7] 0.0000-600.9921 sec  1 datagrams received out-of-order
+[  6] Server Report:
+[  6] 0.0000-600.9921 sec  75.1 MBytes  1.05 Mbits/sec   2.595 ms    2/53588 (0.0037%) 15.630/12.683/128.253/ 0.209 ms   89 pps  8.39

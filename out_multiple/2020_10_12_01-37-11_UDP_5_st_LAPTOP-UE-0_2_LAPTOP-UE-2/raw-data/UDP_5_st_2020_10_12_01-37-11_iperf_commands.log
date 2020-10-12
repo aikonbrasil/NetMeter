@@ -1,0 +1,8 @@
+[ 02:19:24 ] cl1: killall -9 iperf
+[ 02:19:24 ] cl3: killall -9 iperf
+[ 02:19:24 ] cl3: iperf -s -i 10 -e -u
+[ 02:19:34 ] cl1: iperf -c 192.168.67.3 -t 601 -P 5 -u -b 1M
+[ 02:29:46 ] cl3: killall -9 iperf
+[ 02:29:57 ] cl1: iperf -s -i 10 -e -u
+[ 02:30:07 ] cl3: iperf -c 100.100.100.10 -t 601 -P 5 -u -b 1M
+[ 02:40:19 ] cl1: killall -9 iperf

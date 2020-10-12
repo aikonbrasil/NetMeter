@@ -1,0 +1,35 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.3, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  7] local 100.100.100.10 port 47881 connected with 192.168.67.3 port 5001
+[  4] local 100.100.100.10 port 51470 connected with 192.168.67.3 port 5001
+[  3] local 100.100.100.10 port 44161 connected with 192.168.67.3 port 5001
+[  8] local 100.100.100.10 port 33947 connected with 192.168.67.3 port 5001
+[  6] local 100.100.100.10 port 35094 connected with 192.168.67.3 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  7]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  7] Sent 53588 datagrams
+[  4]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  4] Sent 53588 datagrams
+[  8]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  8] Sent 53588 datagrams
+[  6]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  6] Sent 53588 datagrams
+[  7] Server Report:
+[  7] 0.0000-600.9893 sec  75.1 MBytes  1.05 Mbits/sec   2.929 ms    4/53588 (0.0075%) 15.013/11.940/119.257/ 0.251 ms   89 pps  8.73
+[  8] Server Report:
+[  8] 0.0000-600.9893 sec  75.1 MBytes  1.05 Mbits/sec   2.978 ms    2/53588 (0.0037%) 15.021/11.828/130.403/ 0.216 ms   89 pps  8.73
+[  6] Server Report:
+[  6] 0.0000-600.9894 sec  75.1 MBytes  1.05 Mbits/sec   3.005 ms    4/53588 (0.0075%) 15.030/11.941/130.294/ 0.191 ms   89 pps  8.72
+[  4] Server Report:
+[  4] 0.0000-600.9893 sec  75.1 MBytes  1.05 Mbits/sec   2.993 ms    0/53588 (0%) 15.014/11.961/119.220/ 0.231 ms   89 pps  8.73
+[  4] 0.0000-600.9893 sec  4 datagrams received out-of-order
+[  3]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  3] Sent 53588 datagrams
+[SUM]  0.0-601.0 sec   376 MBytes  5.24 Mbits/sec
+[SUM] Sent 267940 datagrams
+[  3] Server Report:
+[  3] 0.0000-600.9893 sec  75.1 MBytes  1.05 Mbits/sec   2.966 ms    0/53588 (0%) 15.022/11.878/130.325/ 0.200 ms   89 pps  8.73
+[  3] 0.0000-600.9893 sec  2 datagrams received out-of-order

@@ -1,0 +1,34 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  5] local 192.168.67.2 port 56939 connected with 100.100.100.10 port 5001
+[  7] local 192.168.67.2 port 58777 connected with 100.100.100.10 port 5001
+[  3] local 192.168.67.2 port 50739 connected with 100.100.100.10 port 5001
+[  4] local 192.168.67.2 port 52221 connected with 100.100.100.10 port 5001
+[  6] local 192.168.67.2 port 59456 connected with 100.100.100.10 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  5] Sent 53588 datagrams
+[  7]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  7] Sent 53588 datagrams
+[  3]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  3] Sent 53588 datagrams
+[  6]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  6] Sent 53588 datagrams
+[  5] Server Report:
+[  5] 0.0000-600.9929 sec  75.1 MBytes  1.05 Mbits/sec   5.909 ms    6/53588 (0.011%) 25.595/ 4.690/106.733/ 0.117 ms   89 pps  5.12
+[  7] Server Report:
+[  7] 0.0000-600.9939 sec  75.1 MBytes  1.05 Mbits/sec   6.681 ms    4/53588 (0.0075%) 25.661/ 4.358/106.827/ 0.262 ms   89 pps  5.11
+[  7] 0.0000-600.9939 sec  1 datagrams received out-of-order
+[  3] Server Report:
+[  3] 0.0000-600.9939 sec  75.1 MBytes  1.05 Mbits/sec   5.140 ms    8/53588 (0.015%) 25.781/ 5.453/106.826/ 0.205 ms   89 pps  5.08
+[  6] Server Report:
+[  6] 0.0000-600.9939 sec  75.1 MBytes  1.05 Mbits/sec   5.451 ms    5/53588 (0.0093%) 25.784/ 5.339/106.827/ 0.122 ms   89 pps  5.08
+[  4]  0.0-601.0 sec  75.1 MBytes  1.05 Mbits/sec
+[  4] Sent 53588 datagrams
+[SUM]  0.0-601.0 sec   376 MBytes  5.24 Mbits/sec
+[SUM] Sent 267940 datagrams
+[  4] Server Report:
+[  4] 0.0000-600.9976 sec  75.1 MBytes  1.05 Mbits/sec   6.282 ms    9/53588 (0.017%) 26.067/ 5.077/106.826/ 0.169 ms   89 pps  5.03
