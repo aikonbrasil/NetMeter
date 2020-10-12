@@ -409,8 +409,8 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                 or len(tmp_lst) != (9 + additional_fields)
                 or (additional_fields and float(tmp_lst[-3]) <= 0)
                 or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
-                print('entro la loop para no leer info')
                ):
+                print('entro la loop para no leer info')
                 continue
 
             if (int(tmp_lst[-4 - additional_fields]) > 0):
