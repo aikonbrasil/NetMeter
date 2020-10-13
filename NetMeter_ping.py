@@ -660,12 +660,12 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
 
     tcp_win_msg = gen_tcp_win_msg(tcpwin)
     warning_message = ''
-    if not finished:
-        warning_message = 'set label "Warning:\\nTest failed to finish!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
-    elif server_fault == 'too_few':
-        warning_message = 'set label "Warning:\\nToo few connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
-    elif server_fault == 'too_many':
-        warning_message = 'set label "Warning:\\nToo many connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
+   # if not finished:
+   #     warning_message = 'set label "Warning:\\nTest failed to finish!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
+   # elif server_fault == 'too_few':
+   #     warning_message = 'set label "Warning:\\nToo few connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
+   # elif server_fault == 'too_many':
+   #     warning_message = 'set label "Warning:\\nToo many connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
 
     plot_net_data = plot_iperf_data(server_fault, plot_type, net_dat_file)
     content = (
@@ -798,7 +798,7 @@ def stop_server(conn, dir_time):
     elif (out or err):
         print(((out + err).strip()).decode('ascii', errors='ignore'))
 
-    sleep(10)
+    sleep(5)
 
 
 def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
