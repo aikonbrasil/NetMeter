@@ -692,11 +692,11 @@ def bend_max_size(size, protocol):
         return size
 
 
-def run_server(protocol, init_name, dir_time, conn, tcpwin):
-    iperf_args = ['-s', '-i', '10', '-y', 'C']
+def run_server(protocol, init_name, dir_time, conn, tcpwin,server_addr):
+    iperf_args = [server_addr]
     #iperf_args = ['-s', '-1', '10']
-    protocol_opts = set_protocol_opts(protocol, tcpwin, client = False)
-    iperf_args += protocol_opts
+    #protocol_opts = set_protocol_opts(protocol, tcpwin, client = False)
+    #iperf_args += protocol_opts
     conn_name = conn.getname()
     iperf_command, output = conn.get_command(iperf_args, init_name + '_iperf.dat', init_name + '_iperf.err')
     print('Starting server on ' + conn_name + '...')
@@ -793,11 +793,11 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
         localpart = False
 
     connlist = [
-                [cl1_conn, cl2_conn, 'one2two', cl2_test_ip, one2two_images, 'Plotting cl1 --> cl2 summary...'],
-                [cl2_conn, cl1_conn, 'two2one', cl1_test_ip, two2one_images, 'Plotting cl2 --> cl1 summary...']
+                [cl1_conn, cl2_conn, 'one2two', cl2_test_ip, cl1_test_ip, one2two_images, 'Plotting cl1 --> cl2 summary...'],
+                [cl2_conn, cl1_conn, 'two2one', cl1_test_ip, cl2_test_ip, two2one_images, 'Plotting cl2 --> cl1 summary...']
                ]
     for c in connlist:
-        [client_conn, server_conn, direction, server_addr, image_list, plot_message] = c
+        [client_conn, server_conn, direction, server_addr, server_addr2, image_list, plot_message] = c
         tot_iperf_mean = -1.0
         iperf_tot = []
         mpstat_tot = []
@@ -809,7 +809,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
             combined_sumname = dir_time + '_' + direction + '_summary'
             print('++++++++++++++++++++++++++++++++++++++++++++++++++')
             try:
-                #run_server(protocol, init_name, dir_time, server_conn, tcpwin)
+                run_server(protocol, init_name, dir_time, server_conn, tcpwin, server_addr2)
                 test_completed, repetitions = run_client(server_addr, runtime, p, streams,
                                                          init_name, dir_time, protocol,
                                                          client_conn, localpart, tcpwin)
