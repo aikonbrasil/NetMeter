@@ -19,13 +19,13 @@ export_dir = 'out_ping'
 
 # IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
-cl1_conn_ip = '192.168.67.2'
-cl2_conn_ip = '100.100.100.10'
+cl1_conn_ip = '100.100.100.10'
+cl2_conn_ip = '192.168.67.2'
 
 # IPs of the clients for testing (may use the same as for connection). [str]
 # Example: '192.168.100.11'
-cl1_test_ip = '192.168.67.2'
-cl2_test_ip = '100.100.100.10'
+cl1_test_ip = '100.100.100.10'
+cl2_test_ip = '192.168.67.2'
 
 # Paths to the Iperf executables on the clients. [raw str]
 # Example: r'C:\iperf\iperf.exe'
@@ -85,13 +85,13 @@ creds_cl2 = 'creds2.dat'
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]
 # Example: 'Some Informative Title'
-title = 'Test Results (5 min per run)'
+title = 'Test Results PING (5 min per run)'
 
 # Pretty names for the clients. Should be as short as possible, and informative -
 # they will appear on the plots and the report. [str]
 # Examples: 'Ubuntu VM', 'e1000e', 'Win 2012'
-cl1_pretty_name = 'LAPTOP-UE-1'
-cl2_pretty_name = 'LAPTOP-UE-0'
+cl1_pretty_name = 'LAPTOP-UE-0'
+cl2_pretty_name = 'LAPTOP-UE-1'
 
 # Shut down the the clients when all tests are over?
 # This is useful when doing long/overnight tests. [bool]
