@@ -800,6 +800,22 @@ def stop_server(conn, dir_time):
 
     sleep(5)
 
+def stop_client(conn, dir_time):
+    conn_name = conn.getname()
+    iperf_stop_command = conn.get_command('stop_iperf')
+    print('Stopping previous PING instances on ' + conn_name + '...')
+    cmd_print(iperf_stop_command, conn_name, dir_time)
+    p = Popen(iperf_stop_command, stdout=PIPE, stderr=PIPE)
+    p.wait()
+    out, err = p.communicate()
+    if 'found' in str(err):
+        print('None were running.')
+        return
+    elif (out or err):
+        print(((out + err).strip()).decode('ascii', errors='ignore'))
+
+    sleep(5)
+
 
 def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
               streams, timestamp, test_title, protocol, tcpwin, export_dir):
@@ -845,6 +861,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
                                                          init_name, dir_time, protocol,
                                                          client_conn, localpart, tcpwin)
                 stop_server(server_conn, dir_time)
+                stop_client(client_conn, dir_time)
                 print('Parsing results...')
                 if localpart:
                     mpstat_array, tot_mpstat_mean, tot_mpstat_stdev = get_mpstat_data_single(init_name + '_mpstat.dat')
