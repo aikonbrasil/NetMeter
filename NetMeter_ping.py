@@ -399,33 +399,53 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     iperf_data = []
     additional_fields = 0
     if protocol == 'UDP':
-        additional_fields = 5
+        additional_fields = 0
 
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
-            tmp_lst = line.strip().split(',')
+            tmp_lst = line.strip().split(' ')
+            print(tmp_lst)
+            print(len(tmp_lst))
+            print(not tmp_lst[0].isdigit())
+            print(len(tmp_lst) != (8))
+            print((additional_fields and float(tmp_lst[-3]) <= 0))
+           # print(float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 1.0)
             if (
                 not tmp_lst[0].isdigit()
-                or len(tmp_lst) != (9 + additional_fields)
+                or len(tmp_lst) != (8)
                 or (additional_fields and float(tmp_lst[-3]) <= 0)
-                or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
+              #  or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 1.0
                ):
+                print('entro la loop para no leer info')
                 continue
 
-            if (int(tmp_lst[-4 - additional_fields]) > 0):
+            if (int(tmp_lst[0]) > 63): #first digit should be 64
+                print('linea para procesar info')
                 # If the link number is positive (i.e if it is not a summary, where it's -1)...
-                date = datetime.strptime(tmp_lst[0], '%Y%m%d%H%M%S')
-                if not iperf_data:
-                    first_date = date
+                #date = datetime.strptime(tmp_lst[0], '%Y%m%d%H%M%S')
+                # ICMP Sequence number
+                date_i = tmp_lst[4].split('=')
+                date = date_i[1]
+                #if not iperf_data:
+                #    first_date = date
 
-                time_from_start = float((date - first_date).total_seconds())
-                rate = float(tmp_lst[-1 - additional_fields])
-                if additional_fields:
+                time_from_start = float(date)
+
+
+                #Unique indicator
+                ref_uniq_index = tmp_lst[0]
+                #rate = float(tmp_lst[-1 - additional_fields])
+                #if additional_fields:
                     # For UDP: rate = rate * (total_datagrams - lost_datagrams) / total_datagrams
-                    rate = rate * (float(tmp_lst[-3]) - float(tmp_lst[-4])) / float(tmp_lst[-3])
-                if (int(tmp_lst[-2 - additional_fields]) < 0) or (rate < 0.0):
-                    rate = np.nan
-                iperf_data.append([ time_from_start, int(tmp_lst[-4 - additional_fields]), rate ])
+                 #   rate = rate * (float(tmp_lst[-3]) - float(tmp_lst[-4])) / float(tmp_lst[-3])
+                #if (int(tmp_lst[-2 - additional_fields]) < 0) or (rate < 0.0):
+                 #   rate = np.nan
+                print(tmp_lst[-2])
+                rtt_i = tmp_lst[-2].split('=')
+                rtt = float(rtt_i[1])
+                print('the round trip time measured is ...')
+                print(rtt)
+                iperf_data.append([ time_from_start, int(ref_uniq_index), rtt ])
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
@@ -437,10 +457,11 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
-
+    print(iperf_data)
     # Sort by connection number, then by date. Get indices of the result.
-    bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,1]))
-    iperf_data = iperf_data[bi_sorted_indices]
+   # bi_sorted_indices = np.lexsort((iperf_data[:,0],iperf_data[:,0]))
+   # iperf_data = iperf_data[bi_sorted_indices]
+    #print(iperf_data)
     ### Mechanism to check if too few or too many connections received
     # Get the index of the line after the last of each connection
     conn_ranges = np.searchsorted(iperf_data[:,1], conns, side='right')
@@ -477,13 +498,19 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
             server_fault = 'too_many'
 
     ### End connection ammount check
+    print(iperf_data)
     iperf_data = iperf_data[:,[0,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    print(iperf_data)
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
+    print(mean_times)
     iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
+    print(iperf_stdev)
     out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
+    print(out_arr)
+    print(out_arr[:,1].mean())
+    print(out_arr[:,1].std())
     return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
-
 
 def get_mpstat_data_single(mpstat_out):
     mpstat_data = []
