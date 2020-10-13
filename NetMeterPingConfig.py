@@ -68,7 +68,7 @@ access_method_cl2 = 'ssh'
 
 # Remote access port (needed only for ssh access). [str]
 # Example: '22'
-ssh_port_cl1 = '2222'
+ssh_port_cl1 = '22'
 ssh_port_cl2 = '22'
 
 # A path to the credentials file for remote access. [str]
