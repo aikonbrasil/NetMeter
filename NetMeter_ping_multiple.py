@@ -445,7 +445,9 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                 rtt = float(rtt_i[1])
                 print('the round trip time measured is ...')
                 print(rtt)
+                print(len(iperf_data))
                 iperf_data.append([ time_from_start, int(ref_uniq_index), rtt ])
+                print(len(iperf_data))
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
@@ -504,10 +506,35 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
     print(mean_times)
-    iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
+    info = iperf_data[:,:,1].sum(axis=0)
+    print('vector std')
+    print(info)
+    print(len(info))
+    #info_out=info
+    info_out = [0] * len(info) 
+    for i in range(len(info)):
+      info_temp = info[0:i]
+    #  print(info_temp.std())
+      std_value = info_temp.std()
+     # print('data type 1')
+     # print(type(std_value))
+      info_out[i] = info_temp.std()
+     # info_out[i] = info[i]
+     # print('data type 2')
+     # print(type(info[i]))
+     # hola = std_value
+     # info_out[i] = hola
+    #  print(info[0:i].std())
+
+    print('INFO IMPORTANTE')
+    info_out[0]= 0
+    print(info_out)
+
+    #iperf_stdev = info.std() * ( np.std(iperf_data[:,:,1], axis=0) +1)
+    iperf_stdev = info_out
     print(iperf_stdev)
     out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
-    print(out_arr)
+    #print(out_arr)
     print(out_arr[:,1].mean())
     print(out_arr[:,1].std())
     return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
