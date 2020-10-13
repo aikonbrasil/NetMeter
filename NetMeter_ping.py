@@ -724,12 +724,16 @@ def run_client(server_addr, runtime, p_size, streams, init_name, dir_time,
           + str(timedelta(seconds = repetitions * 1 + mod)) + ')')
     conn_name = conn.getname()
     cmd_print(iperf_command, conn_name, dir_time)
+    print('the commands are printed in the file...')
     iperf_proc = Popen(iperf_command + output, shell=True)
+    print('running sleep command') 
     if localpart:
         mpstat_proc = Popen('mpstat -P ALL 10 ' + str(repetitions) + ' > ' + init_name + '_mpstat.dat', shell=True)
         mpstat_proc.wait()
     else:
-        sleep(10 * repetitions)
+        print('SLEEP for ...')
+        print(1 * repetitions)
+        sleep(1 * repetitions)
 
     sleep(2)
     waitcount = 1  # Positive integer. Number of 10 sec intervals to wait for the client to finish.
