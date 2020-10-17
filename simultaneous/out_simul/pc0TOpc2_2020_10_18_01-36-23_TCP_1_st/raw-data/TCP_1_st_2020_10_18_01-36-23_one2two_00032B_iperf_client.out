@@ -1,0 +1,7 @@
+------------------------------------------------------------
+Client connecting to 172.20.10.5, TCP port 5002
+TCP window size:  102 KByte (default)
+------------------------------------------------------------
+[  3] local 172.20.10.8 port 46864 connected with 172.20.10.5 port 5002
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-62.5 sec  66.9 MBytes  8.98 Mbits/sec

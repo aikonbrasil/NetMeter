@@ -1,0 +1,2 @@
+[ 19:18:46 ] cl1: killall -9 iperf
+[ 19:18:47 ] cl2: killall -9 iperf
