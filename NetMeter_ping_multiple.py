@@ -367,7 +367,7 @@ def gen_html(title, one2two_summary, two2one_summary, one2two_images, two2one_im
 def get_size_units_factor(num, rate=False):
     factor = 1.0
     if rate:
-        s = 'b/s'
+        s = 'ms'
         thousand = 1000.0
     else:
         s = 'B'
@@ -636,7 +636,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
         rate_format = ''
     except:
         net_rate = '???'
-        rate_units = 'b/s'
+        rate_units = 'ms'
         rate_factor = '1.0'
         rate_format = 'set format y "%.1tx10^%T"\n'
 
@@ -941,7 +941,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
             print(plot_message)
             np.savetxt(iperf_sumname + '.dat', iperf_tot, fmt='%g',
                        header= ('TestOK ' + print_unit +
-                                'Size(B) BW(b/s) Stdev(b/s) BW(' +
+                                'Size(B) Latency(ms) Stdev(ms) Latency(' +
                                 rate_units + ')'))
 
             if localpart:

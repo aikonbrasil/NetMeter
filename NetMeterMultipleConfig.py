@@ -94,17 +94,17 @@ ssh_port_cl6 = '22'
 #    [ password=<PASSWORD> | key=<PATH_TO_KEY> ] (Password (for winexe access) or a path to the private ssh key (for ssh access))
 #    domain=<DOMAIN> (Needed only for Windows clients)
 # Example: 'creds.dat'
-creds_cl1 = 'creds1.dat'
-creds_cl2 = 'creds2.dat'
-creds_cl3 = 'creds3.dat'
-creds_cl4 = 'creds4.dat'
-creds_cl5 = 'creds5.dat'
-creds_cl6 = 'creds6.dat'
+creds_cl1 = 'creds0.dat'
+creds_cl2 = 'creds1.dat'
+creds_cl3 = 'creds2.dat'
+creds_cl4 = 'creds3.dat'
+creds_cl5 = 'creds4.dat'
+creds_cl6 = 'creds5.dat'
 
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]
 # Example: 'Some Informative Title'
-title = 'Test Results (5 min per run)'
+title = 'NOKIA-LUT Measurements'
 
 # Pretty names for the clients. Should be as short as possible, and informative -
 # they will appear on the plots and the report. [str]

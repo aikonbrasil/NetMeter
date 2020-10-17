@@ -79,8 +79,8 @@ ssh_port_cl2 = '22'
 #    [ password=<PASSWORD> | key=<PATH_TO_KEY> ] (Password (for winexe access) or a path to the private ssh key (for ssh access))
 #    domain=<DOMAIN> (Needed only for Windows clients)
 # Example: 'creds.dat'
-creds_cl1 = 'creds1.dat'
-creds_cl2 = 'creds2.dat'
+creds_cl1 = 'creds0.dat'
+creds_cl2 = 'creds1.dat'
 
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]

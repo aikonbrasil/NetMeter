@@ -49,7 +49,7 @@ test_range = [2**x for x in range(5,6)]
 
 # The duration of a single run, in seconds. Must be at least 20, preferable at least 120. [int]
 # Example: 300
-run_duration = 25
+run_duration = 20
 
 # The desired numbers of streams. [iterable]
 # Example: [1, 4]
@@ -94,12 +94,12 @@ ssh_port_cl6 = '22'
 #    [ password=<PASSWORD> | key=<PATH_TO_KEY> ] (Password (for winexe access) or a path to the private ssh key (for ssh access))
 #    domain=<DOMAIN> (Needed only for Windows clients)
 # Example: 'creds.dat'
-creds_cl1 = 'creds1.dat'
-creds_cl2 = 'creds2.dat'
-creds_cl3 = 'creds3.dat'
-creds_cl4 = 'creds4.dat'
-creds_cl5 = 'creds5.dat'
-creds_cl6 = 'creds6.dat'
+creds_cl1 = 'creds0.dat'
+creds_cl2 = 'creds1.dat'
+creds_cl3 = 'creds2.dat'
+creds_cl4 = 'creds3.dat'
+creds_cl5 = 'creds4.dat'
+creds_cl6 = 'creds5.dat'
 
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]
