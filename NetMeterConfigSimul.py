@@ -10,7 +10,7 @@
 
 # Export directory. The results will be saved there. [str]
 # Example: '/home/user/out'
-export_dir = 'out_simul_largotiempo'
+export_dir = 'medlab_thrput_simultaneous'
 
 # IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
