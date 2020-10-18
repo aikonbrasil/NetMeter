@@ -10,34 +10,36 @@
 
 # Export directory. The results will be saved there. [str]
 # Example: '/home/user/out'
-export_dir = 'out_multiple'
+export_dir = 'out_isolated'
 
 # IPs of the clients for connection. [str]
+# IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
-cl1_conn_ip = '100.100.100.10'
-cl2_conn_ip = '192.168.67.2'
-cl3_conn_ip = '192.168.67.3'
-cl4_conn_ip = '192.168.67.4'
-cl5_conn_ip = '192.168.67.5'
-cl6_conn_ip = '192.168.67.6'
+# ipp = '157.24.27.106'
+cl1_conn_ip = '172.20.10.8'
+cl2_conn_ip = '172.20.10.3'
+cl3_conn_ip = '172.20.10.5'
+#cl4_conn_ip = ipp
+#cl5_conn_ip = ipp
+#cl6_conn_ip = ipp
 
 # IPs of the clients for testing (may use the same as for connection). [str]
 # Example: '192.168.100.11'
-cl1_test_ip = '100.100.100.10'
-cl2_test_ip = '192.168.67.2'
-cl3_test_ip = '192.168.67.3'
-cl4_test_ip = '192.168.67.4'
-cl5_test_ip = '192.168.67.5'
-cl6_test_ip = '192.168.67.6'
+cl1_test_ip = '172.20.10.8'
+cl2_test_ip = '172.20.10.3'
+cl3_test_ip = '172.20.10.5'
+#cl4_test_ip = ipp
+#cl5_test_ip = ipp
+#cl6_test_ip = ipp
 
 # Paths to the Iperf executables on the clients. [raw str]
 # Example: r'C:\iperf\iperf.exe'
 cl1_iperf = r'iperf'
 cl2_iperf = r'iperf'
 cl3_iperf = r'iperf'
-cl4_iperf = r'iperf'
-cl5_iperf = r'iperf'
-cl6_iperf = r'iperf'
+#cl4_iperf = r'iperf'
+#cl5_iperf = r'iperf'
+#cl6_iperf = r'iperf'
 
 # Path to the gnuplot executable on the local machine. [str]
 # Example: 'gnuplot'
@@ -59,7 +61,7 @@ streams = [1, 2]
 # The value MUST be one of 3: ['TCP'] | ['UDP'] | ['TCP', 'UDP']
 #protocols = ['TCP', 'UDP']
 # if PANDABOARD is being used, only TCP is ok.
-protocols = ['UDP']
+protocols = ['TCP']
 
 # The desired TCP window size. [str or None].
 # Set to None for default. Example: '1M'.
@@ -73,18 +75,18 @@ tcp_win_size = None
 access_method_cl1 = 'ssh'
 access_method_cl2 = 'ssh'
 access_method_cl3 = 'ssh'
-access_method_cl4 = 'ssh'
-access_method_cl5 = 'ssh'
-access_method_cl6 = 'ssh'
+#access_method_cl4 = 'ssh'
+#access_method_cl5 = 'ssh'
+#access_method_cl6 = 'ssh'
 
 # Remote access port (needed only for ssh access). [str]
 # Example: '22'
 ssh_port_cl1 = '22'
 ssh_port_cl2 = '22'
 ssh_port_cl3 = '22'
-ssh_port_cl4 = '22'
-ssh_port_cl5 = '22'
-ssh_port_cl6 = '22'
+#ssh_port_cl4 = '22'
+#ssh_port_cl5 = '22'
+#ssh_port_cl6 = '22'
 
 # A path to the credentials file for remote access. [str]
 # This file should contain two or three lines:
@@ -94,12 +96,12 @@ ssh_port_cl6 = '22'
 #    [ password=<PASSWORD> | key=<PATH_TO_KEY> ] (Password (for winexe access) or a path to the private ssh key (for ssh access))
 #    domain=<DOMAIN> (Needed only for Windows clients)
 # Example: 'creds.dat'
-creds_cl1 = 'creds0.dat'
-creds_cl2 = 'creds1.dat'
-creds_cl3 = 'creds2.dat'
-creds_cl4 = 'creds3.dat'
-creds_cl5 = 'creds4.dat'
-creds_cl6 = 'creds5.dat'
+creds_cl1 = 'creds100.dat'
+creds_cl2 = 'creds101.dat'
+creds_cl3 = 'creds102.dat'
+#creds_cl4 = 'creds100.dat'
+#creds_cl5 = 'creds100.dat'
+#creds_cl6 = 'creds100.dat'
 
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]
@@ -112,9 +114,16 @@ title = 'NOKIA-LUT Measurements'
 cl1_pretty_name = 'LAPTOP-UE-0'
 cl2_pretty_name = 'LAPTOP-UE-1'
 cl3_pretty_name = 'LAPTOP-UE-2'
-cl4_pretty_name = 'LAPTOP-UE-3'
-cl5_pretty_name = 'LAPTOP-UE-4'
-cl6_pretty_name = 'LAPTOP-UE-5'
+#cl4_pretty_name = 'LAPTOP-UE-3'
+#cl5_pretty_name = 'LAPTOP-UE-4'
+#cl6_pretty_name = 'LAPTOP-UE-5'
+
+# the port for each paralell bearer connection with IPER
+port_iperf_t1 = 5001
+port_iperf_t2 = 5002
+#port_iperf_t3 = 5003
+#port_iperf_t4 = 5004
+#port_iperf_t5 = 5005
 
 # Shut down the the clients when all tests are over?
 # This is useful when doing long/overnight tests. [bool]

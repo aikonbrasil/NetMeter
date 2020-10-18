@@ -1,0 +1,20 @@
+------------------------------------------------------------
+Client connecting to 172.20.10.8, UDP port 5002
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  176 KByte (default)
+------------------------------------------------------------
+[  6] local 172.20.10.5 port 47006 connected with 172.20.10.8 port 5002
+[  5] local 172.20.10.5 port 47524 connected with 172.20.10.8 port 5002
+[  4] local 172.20.10.5 port 56590 connected with 172.20.10.8 port 5002
+[  3] local 172.20.10.5 port 48700 connected with 172.20.10.8 port 5002
+[ ID] Interval       Transfer     Bandwidth
+[  6]  0.0-1801.0 sec  22.0 GBytes   105 Mbits/sec
+[  6] Sent 804 datagrams
+[  5]  0.0-1801.0 sec  22.0 GBytes   105 Mbits/sec
+[  5] Sent 804 datagrams
+[  4]  0.0-1801.0 sec  22.0 GBytes   105 Mbits/sec
+[  4] Sent 804 datagrams
+[  3]  0.0-1801.0 sec  22.0 GBytes   105 Mbits/sec
+[  3] Sent 804 datagrams
+[SUM]  0.0-1801.0 sec  87.9 GBytes   419 Mbits/sec
+[SUM] Sent 64234199 datagrams

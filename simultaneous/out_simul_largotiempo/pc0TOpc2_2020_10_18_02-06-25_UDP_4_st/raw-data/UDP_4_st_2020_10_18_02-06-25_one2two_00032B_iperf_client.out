@@ -1,0 +1,32 @@
+------------------------------------------------------------
+Client connecting to 172.20.10.5, UDP port 5002
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  6] local 172.20.10.8 port 34391 connected with 172.20.10.5 port 5002
+[  3] local 172.20.10.8 port 43242 connected with 172.20.10.5 port 5002
+[  4] local 172.20.10.8 port 43958 connected with 172.20.10.5 port 5002
+[  5] local 172.20.10.8 port 34369 connected with 172.20.10.5 port 5002
+[ ID] Interval       Transfer     Bandwidth
+[  6]  0.0-1801.0 sec  9.63 GBytes  45.9 Mbits/sec
+[  6] Sent 7030752 datagrams
+[  4]  0.0-1801.0 sec  9.57 GBytes  45.6 Mbits/sec
+[  4] Sent 6987739 datagrams
+[  6] Server Report:
+[  6]  0.0-1801.1 sec   100 MBytes   467 Kbits/sec  16.793 ms 6959168/7030753 (99%)
+[  6] 0.0000-1801.1322 sec  728 datagrams received out-of-order
+[  4] Server Report:
+[  4]  0.0-1801.1 sec   101 MBytes   470 Kbits/sec  16.634 ms 6915795/6987740 (99%)
+[  4] 0.0000-1801.1322 sec  1045 datagrams received out-of-order
+[  3]  0.0-1801.1 sec  9.54 GBytes  45.5 Mbits/sec
+[  3] Sent 6965068 datagrams
+[  5]  0.0-1801.0 sec  9.51 GBytes  45.4 Mbits/sec
+[  5] Sent 6948126 datagrams
+[SUM]  0.0-1801.1 sec  38.2 GBytes   182 Mbits/sec
+[SUM] Sent 27931685 datagrams
+[  3] Server Report:
+[  3]  0.0-1801.2 sec  98.1 MBytes   457 Kbits/sec  18.387 ms 6895096/6965069 (99%)
+[  3] 0.0000-1801.1526 sec  886 datagrams received out-of-order
+[  5] Server Report:
+[  5]  0.0-1801.2 sec  96.6 MBytes   450 Kbits/sec  22.681 ms 6879232/6948127 (99%)
+[  5] 0.0000-1801.1526 sec  767 datagrams received out-of-order

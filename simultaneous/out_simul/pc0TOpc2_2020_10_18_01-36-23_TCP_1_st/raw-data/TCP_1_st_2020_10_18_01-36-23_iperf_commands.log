@@ -5,3 +5,4 @@
 [ 01:37:56 ] cl3: killall -9 iperf
 [ 01:38:06 ] cl1: iperf -s -i 10 -y C -p 5002
 [ 01:38:16 ] cl3: iperf -c 172.20.10.8 -t 61 -P 1 -p 5002
+[ 01:39:28 ] cl1: killall -9 iperf

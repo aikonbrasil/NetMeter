@@ -1,0 +1,14 @@
+------------------------------------------------------------
+Client connecting to 172.20.10.8, TCP port 5002
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  4] local 172.20.10.5 port 55086 connected with 172.20.10.8 port 5002
+[  6] local 172.20.10.5 port 55090 connected with 172.20.10.8 port 5002
+[  5] local 172.20.10.5 port 55088 connected with 172.20.10.8 port 5002
+[  3] local 172.20.10.5 port 55084 connected with 172.20.10.8 port 5002
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-1801.4 sec   464 MBytes  2.16 Mbits/sec
+[  4]  0.0-1801.6 sec   465 MBytes  2.17 Mbits/sec
+[  6]  0.0-1802.0 sec   450 MBytes  2.10 Mbits/sec
+[  5]  0.0-1802.0 sec   454 MBytes  2.12 Mbits/sec
+[SUM]  0.0-1802.0 sec  1.79 GBytes  8.54 Mbits/sec
