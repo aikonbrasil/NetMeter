@@ -1,0 +1,7 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.6, TCP port 5005
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 100.100.100.10 port 54896 connected with 192.168.67.6 port 5005
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-61.1 sec  71.1 MBytes  9.77 Mbits/sec

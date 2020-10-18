@@ -1,0 +1,10 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  4] local 192.168.67.5 port 57978 connected with 100.100.100.10 port 5001
+[  3] local 192.168.67.5 port 57976 connected with 100.100.100.10 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-601.1 sec   660 MBytes  9.22 Mbits/sec
+[  4]  0.0-602.2 sec   593 MBytes  8.26 Mbits/sec
+[SUM]  0.0-602.2 sec  1.22 GBytes  17.5 Mbits/sec

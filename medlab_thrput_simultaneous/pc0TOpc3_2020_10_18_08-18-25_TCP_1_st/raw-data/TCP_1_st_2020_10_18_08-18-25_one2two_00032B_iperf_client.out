@@ -1,0 +1,7 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.4, TCP port 5003
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 100.100.100.10 port 43698 connected with 192.168.67.4 port 5003
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-61.0 sec  70.2 MBytes  9.66 Mbits/sec
