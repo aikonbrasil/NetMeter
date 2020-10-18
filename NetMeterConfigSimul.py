@@ -50,7 +50,7 @@ test_range = [2**x for x in range(5,6)]
 
 # The duration of a single run, in seconds. Must be at least 20, preferable at least 120. [int]
 # Example: 300
-run_duration = 60
+run_duration = 1800
 
 # The desired numbers of streams. [iterable]
 # Example: [1, 4]
