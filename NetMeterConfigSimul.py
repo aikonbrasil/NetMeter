@@ -36,9 +36,9 @@ cl6_test_ip = '192.168.67.6'
 cl1_iperf = r'iperf'
 cl2_iperf = r'iperf'
 cl3_iperf = r'iperf'
-#cl4_iperf = r'iperf'
-#cl5_iperf = r'iperf'
-#cl6_iperf = r'iperf'
+cl4_iperf = r'iperf'
+cl5_iperf = r'iperf'
+cl6_iperf = r'iperf'
 
 # Path to the gnuplot executable on the local machine. [str]
 # Example: 'gnuplot'
