@@ -10,7 +10,7 @@
 
 # Export directory. The results will be saved there. [str]
 # Example: '/home/user/out'
-export_dir = 'out_multiple'
+export_dir = 'medlab_thrput_non_simulatenous'
 
 # IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
@@ -49,7 +49,7 @@ test_range = [2**x for x in range(5,6)]
 
 # The duration of a single run, in seconds. Must be at least 20, preferable at least 120. [int]
 # Example: 300
-run_duration = 60
+run_duration = 600
 
 # The desired numbers of streams. [iterable]
 # Example: [1, 4]
@@ -59,7 +59,7 @@ streams = [1, 2]
 # The value MUST be one of 3: ['TCP'] | ['UDP'] | ['TCP', 'UDP']
 #protocols = ['TCP', 'UDP']
 # if PANDABOARD is being used, only TCP is ok.
-protocols = ['UDP']
+protocols = ['UDP', 'TCP']
 
 # The desired TCP window size. [str or None].
 # Set to None for default. Example: '1M'.
