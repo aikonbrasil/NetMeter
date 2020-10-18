@@ -1,0 +1,9 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, UDP port 5003
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.67.4 port 54271 connected with 100.100.100.10 port 5003
+[  6] local 192.168.67.4 port 53535 connected with 100.100.100.10 port 5003
+[  5] local 192.168.67.4 port 41150 connected with 100.100.100.10 port 5003
+[  4] local 192.168.67.4 port 45764 connected with 100.100.100.10 port 5003

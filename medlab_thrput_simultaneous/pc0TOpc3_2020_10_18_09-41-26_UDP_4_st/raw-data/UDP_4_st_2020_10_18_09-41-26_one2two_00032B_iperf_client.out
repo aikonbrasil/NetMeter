@@ -1,0 +1,32 @@
+------------------------------------------------------------
+Client connecting to 192.168.67.4, UDP port 5003
+Sending 1470 byte datagrams, IPG target: 112.15 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  5] local 100.100.100.10 port 44858 connected with 192.168.67.4 port 5003
+[  3] local 100.100.100.10 port 41605 connected with 192.168.67.4 port 5003
+[  4] local 100.100.100.10 port 35113 connected with 192.168.67.4 port 5003
+[  6] local 100.100.100.10 port 36070 connected with 192.168.67.4 port 5003
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-1801.0 sec  15.5 GBytes  74.0 Mbits/sec
+[  5] Sent 11328037 datagrams
+[  3]  0.0-1801.0 sec  15.9 GBytes  75.6 Mbits/sec
+[  3] Sent 11579150 datagrams
+[  5] Server Report:
+[  5]  0.0-1801.7 sec   465 MBytes  2.16 Mbits/sec   3.478 ms 10996602/11328038 (97%)
+[  5] 0.0000-1801.7391 sec  7 datagrams received out-of-order
+[  3] Server Report:
+[  3]  0.0-1801.7 sec   454 MBytes  2.11 Mbits/sec   4.077 ms 11255480/11579152 (97%)
+[  3] 0.0000-1801.7409 sec  12 datagrams received out-of-order
+[  4]  0.0-1801.0 sec  15.8 GBytes  75.3 Mbits/sec
+[  4] Sent 11527608 datagrams
+[  4] Server Report:
+[  4]  0.0-1801.7 sec   466 MBytes  2.17 Mbits/sec   4.632 ms 11195409/11527609 (97%)
+[  4] 0.0000-1801.7399 sec  6 datagrams received out-of-order
+[  6]  0.0-1801.0 sec  15.7 GBytes  74.9 Mbits/sec
+[  6] Sent 11476095 datagrams
+[SUM]  0.0-1801.0 sec  62.9 GBytes   300 Mbits/sec
+[SUM] Sent 45910890 datagrams
+[  6] Server Report:
+[  6]  0.0-1801.7 sec   488 MBytes  2.27 Mbits/sec   3.954 ms 11127918/11476098 (97%)
+[  6] 0.0000-1801.7451 sec  4 datagrams received out-of-order

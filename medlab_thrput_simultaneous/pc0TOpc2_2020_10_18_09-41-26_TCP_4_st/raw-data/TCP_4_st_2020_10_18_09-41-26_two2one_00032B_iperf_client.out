@@ -1,0 +1,8 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, TCP port 5002
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  4] local 192.168.67.3 port 59390 connected with 100.100.100.10 port 5002
+[  6] local 192.168.67.3 port 59396 connected with 100.100.100.10 port 5002
+[  5] local 192.168.67.3 port 59394 connected with 100.100.100.10 port 5002
+[  3] local 192.168.67.3 port 59392 connected with 100.100.100.10 port 5002
