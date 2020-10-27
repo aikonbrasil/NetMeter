@@ -15,20 +15,20 @@ export_dir = 'medlab_thrput_non_simulatenous'
 # IPs of the clients for connection. [str]
 # Example: '10.0.1.114'
 cl1_conn_ip = '100.100.100.10'
-cl2_conn_ip = '192.168.67.2'
-cl3_conn_ip = '192.168.67.3'
-cl4_conn_ip = '192.168.67.4'
-cl5_conn_ip = '192.168.67.5'
-cl6_conn_ip = '192.168.67.6'
+cl2_conn_ip = '192.168.241.11'
+cl3_conn_ip = '192.168.241.12'
+cl4_conn_ip = '192.168.241.13'
+#cl5_conn_ip = '192.168.67.5'
+#cl6_conn_ip = '192.168.67.6'
 
 # IPs of the clients for testing (may use the same as for connection). [str]
 # Example: '192.168.100.11'
 cl1_test_ip = '100.100.100.10'
-cl2_test_ip = '192.168.67.2'
-cl3_test_ip = '192.168.67.3'
-cl4_test_ip = '192.168.67.4'
-cl5_test_ip = '192.168.67.5'
-cl6_test_ip = '192.168.67.6'
+cl2_test_ip = '192.168.241.11'
+cl3_test_ip = '192.168.241.12'
+cl4_test_ip = '192.168.241.13'
+#cl5_test_ip = '192.168.67.5'
+#cl6_test_ip = '192.168.67.6'
 
 # Paths to the Iperf executables on the clients. [raw str]
 # Example: r'C:\iperf\iperf.exe'
@@ -49,17 +49,17 @@ test_range = [2**x for x in range(5,6)]
 
 # The duration of a single run, in seconds. Must be at least 20, preferable at least 120. [int]
 # Example: 300
-run_duration = 600
+run_duration = 30
 
 # The desired numbers of streams. [iterable]
 # Example: [1, 4]
-streams = [1, 2]
+streams = [2]
 
 # The desired protocol(s). [iterable]
 # The value MUST be one of 3: ['TCP'] | ['UDP'] | ['TCP', 'UDP']
 #protocols = ['TCP', 'UDP']
 # if PANDABOARD is being used, only TCP is ok.
-protocols = ['UDP', 'TCP']
+protocols = ['TCP']
 
 # The desired TCP window size. [str or None].
 # Set to None for default. Example: '1M'.
@@ -74,8 +74,8 @@ access_method_cl1 = 'ssh'
 access_method_cl2 = 'ssh'
 access_method_cl3 = 'ssh'
 access_method_cl4 = 'ssh'
-access_method_cl5 = 'ssh'
-access_method_cl6 = 'ssh'
+#access_method_cl5 = 'ssh'
+#access_method_cl6 = 'ssh'
 
 # Remote access port (needed only for ssh access). [str]
 # Example: '22'
@@ -95,26 +95,26 @@ ssh_port_cl6 = '22'
 #    domain=<DOMAIN> (Needed only for Windows clients)
 # Example: 'creds.dat'
 creds_cl1 = 'creds0.dat'
-creds_cl2 = 'creds1.dat'
-creds_cl3 = 'creds2.dat'
-creds_cl4 = 'creds3.dat'
-creds_cl5 = 'creds4.dat'
-creds_cl6 = 'creds5.dat'
+creds_cl2 = 'creds6.dat'
+creds_cl3 = 'creds7.dat'
+creds_cl4 = 'creds8.dat'
+#creds_cl5 = 'creds4.dat'
+#creds_cl6 = 'creds5.dat'
 
 # A title for the test. Needs to be short and informative, appears as the title of the output html page.
 # For the page to look good, the title needs to be no longer than 80 characters. [str]
 # Example: 'Some Informative Title'
-title = 'NOKIA-LUT Measurements'
+title = 'NOKIA-LUT Measurements Field'
 
 # Pretty names for the clients. Should be as short as possible, and informative -
 # they will appear on the plots and the report. [str]
 # Examples: 'Ubuntu VM', 'e1000e', 'Win 2012'
 cl1_pretty_name = 'LAPTOP-UE-0'
-cl2_pretty_name = 'LAPTOP-UE-1'
-cl3_pretty_name = 'LAPTOP-UE-2'
-cl4_pretty_name = 'LAPTOP-UE-3'
-cl5_pretty_name = 'LAPTOP-UE-4'
-cl6_pretty_name = 'LAPTOP-UE-5'
+cl2_pretty_name = 'LAPTOP-UE-6'
+cl3_pretty_name = 'LAPTOP-UE-7'
+cl4_pretty_name = 'LAPTOP-UE-8'
+#cl5_pretty_name = 'LAPTOP-UE-4'
+#cl6_pretty_name = 'LAPTOP-UE-5'
 
 # Shut down the the clients when all tests are over?
 # This is useful when doing long/overnight tests. [bool]
