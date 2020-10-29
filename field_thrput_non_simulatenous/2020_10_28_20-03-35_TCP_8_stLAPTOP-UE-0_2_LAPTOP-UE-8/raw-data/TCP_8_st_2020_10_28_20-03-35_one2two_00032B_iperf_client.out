@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.13, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  9] local 100.100.100.10 port 36030 connected with 192.168.241.13 port 5001
+[  6] local 100.100.100.10 port 36024 connected with 192.168.241.13 port 5001
+[  7] local 100.100.100.10 port 36026 connected with 192.168.241.13 port 5001
+[  3] local 100.100.100.10 port 36018 connected with 192.168.241.13 port 5001
+[  5] local 100.100.100.10 port 36022 connected with 192.168.241.13 port 5001
+[  4] local 100.100.100.10 port 36020 connected with 192.168.241.13 port 5001
+[ 10] local 100.100.100.10 port 36032 connected with 192.168.241.13 port 5001
+[  8] local 100.100.100.10 port 36028 connected with 192.168.241.13 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  6]  0.0-10801.0 sec  6.50 GBytes  5.17 Mbits/sec
+[  8]  0.0-10801.4 sec  6.61 GBytes  5.26 Mbits/sec
+[  5]  0.0-10801.6 sec  6.25 GBytes  4.97 Mbits/sec
+[  7]  0.0-10802.0 sec  6.52 GBytes  5.18 Mbits/sec
+[ 10]  0.0-10802.1 sec  6.69 GBytes  5.32 Mbits/sec
+[  3]  0.0-10802.5 sec  6.58 GBytes  5.23 Mbits/sec
+[  9]  0.0-10802.9 sec  6.50 GBytes  5.17 Mbits/sec
+[  4]  0.0-10804.0 sec  6.49 GBytes  5.16 Mbits/sec
+[SUM]  0.0-10804.0 sec  52.1 GBytes  41.5 Mbits/sec

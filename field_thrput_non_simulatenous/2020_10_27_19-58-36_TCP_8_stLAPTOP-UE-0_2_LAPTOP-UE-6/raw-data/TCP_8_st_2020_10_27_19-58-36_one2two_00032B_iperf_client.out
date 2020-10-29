@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.11, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  5] local 100.100.100.10 port 42914 connected with 192.168.241.11 port 5001
+[  3] local 100.100.100.10 port 42912 connected with 192.168.241.11 port 5001
+[  9] local 100.100.100.10 port 42924 connected with 192.168.241.11 port 5001
+[  7] local 100.100.100.10 port 42918 connected with 192.168.241.11 port 5001
+[  4] local 100.100.100.10 port 42910 connected with 192.168.241.11 port 5001
+[  8] local 100.100.100.10 port 42920 connected with 192.168.241.11 port 5001
+[ 10] local 100.100.100.10 port 42922 connected with 192.168.241.11 port 5001
+[  6] local 100.100.100.10 port 42916 connected with 192.168.241.11 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  8]  0.0-10801.1 sec  13.2 GBytes  10.5 Mbits/sec
+[  5]  0.0-10801.2 sec  12.3 GBytes  9.76 Mbits/sec
+[  4]  0.0-10801.3 sec  12.5 GBytes  9.90 Mbits/sec
+[  3]  0.0-10801.3 sec  13.0 GBytes  10.3 Mbits/sec
+[ 10]  0.0-10801.5 sec  12.9 GBytes  10.2 Mbits/sec
+[  9]  0.0-10801.6 sec  12.8 GBytes  10.1 Mbits/sec
+[  6]  0.0-10802.0 sec  12.3 GBytes  9.78 Mbits/sec
+[  7]  0.0-10803.0 sec  12.6 GBytes  10.0 Mbits/sec
+[SUM]  0.0-10803.0 sec   101 GBytes  80.6 Mbits/sec
