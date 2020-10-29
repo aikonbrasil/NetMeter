@@ -1025,58 +1025,7 @@ def mainfunc3():
     if shutdown:
         cl1_conn.shutdown()
         cl2_conn.shutdown()
-def mainfunc4():
-    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    # Interrupt handling
-    par_name = 'pc0TOpc4'
-    signal.signal(signal.SIGINT, interrupt_exit)
-    # Getting connections
-    cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
-    cl5_conn = Connect(access_method_cl5, cl5_conn_ip, 'cl5', cl5_iperf, ssh_port_cl5, creds_cl5)
-    # Write message
-    if (len(protocols) > 1) or (len(streams) > 1):
-        total_time = str(timedelta(seconds = (2 * len(test_range) * (run_duration + 32) + 20) *
-                         len(protocols) * len(streams)))
-        tprint('\033[92mStarting tests for protocols: ' + ', '.join(protocols) + '.\033[0m')
-        tprint('\033[92mUsing ' + ','.join(str(s) for s in streams) + ' stream(s).\033[0m')
-        tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
-    # Run tests
-    testinsts = Multitest(cl1_conn, cl5_conn, cl1_test_ip, cl5_test_ip,
-                          run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir, par_name, port_iperf_t4, cl1_pretty_name, cl5_pretty_name)
-    testinsts.run_tests_for_streams(streams, protocols)
-    # Shut down the clients if needed.
-    # IF ONE OF THE CLIENTS IS LOCAL, IT WILL NOT SHUT DOWN.
-    if shutdown:
-        cl1_conn.shutdown()
-        cl2_conn.shutdown()
-def mainfunc5():
-    rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    # Interrupt handling
-    par_name = 'pc0TOpc5'
-    signal.signal(signal.SIGINT, interrupt_exit)
-    # Getting connections
-    cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
-    cl6_conn = Connect(access_method_cl6, cl6_conn_ip, 'cl6', cl6_iperf, ssh_port_cl6, creds_cl6)
-    # Write message
-    if (len(protocols) > 1) or (len(streams) > 1):
-        total_time = str(timedelta(seconds = (2 * len(test_range) * (run_duration + 32) + 20) *
-                         len(protocols) * len(streams)))
-        tprint('\033[92mStarting tests for protocols: ' + ', '.join(protocols) + '.\033[0m')
-        tprint('\033[92mUsing ' + ','.join(str(s) for s in streams) + ' stream(s).\033[0m')
-        tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
-
-    # Run tests
-    testinsts = Multitest(cl1_conn, cl6_conn, cl1_test_ip, cl6_test_ip,
-                          run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir, par_name, port_iperf_t5, cl1_pretty_name, cl6_pretty_name)
-    testinsts.run_tests_for_streams(streams, protocols)
-    # Shut down the clients if needed.
-    # IF ONE OF THE CLIENTS IS LOCAL, IT WILL NOT SHUT DOWN.
-    if shutdown:
-        cl1_conn.shutdown()
-        cl2_conn.shutdown()
 
 
 #if __name__ == "__main__":
@@ -1088,13 +1037,7 @@ if __name__ == '__main__':
   p2.start()
   p3 = Process(target=mainfunc3)
   p3.start()
-  #p4 = Process(target=mainfunc4)
-  #p4.start()
-  #p5 = Process(target=mainfunc5)
-  #p5.start()
 
   p1.join()
   p2.join()
   p3.join()
-  #p4.join()
-  #p5.join()
