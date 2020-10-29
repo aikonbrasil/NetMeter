@@ -1,0 +1,7 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.11, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  3] local 100.100.100.10 port 46420 connected with 192.168.241.11 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-31.0 sec  87.8 MBytes  23.7 Mbits/sec

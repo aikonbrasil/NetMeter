@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, TCP port 5003
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[  9] local 192.168.241.13 port 41468 connected with 100.100.100.10 port 5003
+[  6] local 192.168.241.13 port 41462 connected with 100.100.100.10 port 5003
+[  3] local 192.168.241.13 port 41458 connected with 100.100.100.10 port 5003
+[  5] local 192.168.241.13 port 41460 connected with 100.100.100.10 port 5003
+[ 10] local 192.168.241.13 port 41470 connected with 100.100.100.10 port 5003
+[  4] local 192.168.241.13 port 41456 connected with 100.100.100.10 port 5003
+[  7] local 192.168.241.13 port 41464 connected with 100.100.100.10 port 5003
+[  8] local 192.168.241.13 port 41466 connected with 100.100.100.10 port 5003
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0-32.5 sec  4.00 MBytes  1.03 Mbits/sec
+[  7]  0.0-33.4 sec  4.00 MBytes  1.01 Mbits/sec
+[  5]  0.0-34.5 sec  4.38 MBytes  1.06 Mbits/sec
+[  3]  0.0-36.9 sec  4.88 MBytes  1.11 Mbits/sec
+[  6]  0.0-36.9 sec  4.62 MBytes  1.05 Mbits/sec
+[  9]  0.0-37.5 sec  4.75 MBytes  1.06 Mbits/sec
+[ 10]  0.0-37.8 sec  4.50 MBytes   998 Kbits/sec
+[  8]  0.0-43.3 sec  5.12 MBytes   992 Kbits/sec
+[SUM]  0.0-43.3 sec  36.2 MBytes  7.02 Mbits/sec
