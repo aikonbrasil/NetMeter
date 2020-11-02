@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Server listening on UDP port 5001 with pid 10964
+Receiving 1470 byte datagrams
+UDP buffer size:  176 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.241.11 port 5001 connected with 100.100.100.10 port 59572
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-10.0000 sec  1.22 MBytes  1.02 Mbits/sec  27.513 ms    0/  867 (0%) 131.775/37.471/449.966/113.782 ms   86 pps  0.97
+[  3] 10.0000-20.0000 sec  1.29 MBytes  1.08 Mbits/sec   2.752 ms    0/  917 (0%) 111.084/37.630/458.502/108.012 ms   92 pps  1.21
+[  3] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   2.445 ms    0/  891 (0%) 79.659/37.807/443.113/85.844 ms   89 pps  1.64
+[  3] 0.0000-31.0093 sec  3.88 MBytes  1.05 Mbits/sec   8.154 ms    0/ 2765 (0%) 108.229/37.471/458.502/105.452 ms   89 pps  1.21

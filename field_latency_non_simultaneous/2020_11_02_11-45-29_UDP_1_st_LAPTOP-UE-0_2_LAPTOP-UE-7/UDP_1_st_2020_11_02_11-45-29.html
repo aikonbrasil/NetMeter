@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+body {
+    background-color: #eeffff;
+    font-family: Verdana, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0px;
+    text-align: center;
+}
+#container {
+    width: 100%;
+    min-width: 800px;
+    height: 100%;
+}
+#header, #footer {
+    display: inline-block;
+    width: 100%;
+    min-width: 800px;
+    padding: 0.3em 0px;
+    background-color: #eeeeee;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+}
+#one2two {
+    width: 50%;
+    float: left;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+#two2one {
+    background-color: #ffffee;
+    width: 50%;
+    float: right;
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+}
+#missing {
+    position: relative;
+    width: 90%;
+    max-width: 1024px;
+    padding-bottom: 67.5%;
+    margin: 5px auto;
+    background-color: #ffcccc;
+    z-index: 10;
+}
+#missing > div {
+    position: absolute;
+    width: 100%;
+    padding: 1em;
+    z-index: 20;
+}
+img {
+    max-width: 90%;
+    margin: 5px auto;
+    display: block;
+}
+h1 {
+    margin-bottom: 0px;
+}
+h3, p {
+    margin: 0px;
+}
+</style>
+<title>Iperf LAPTOP-UE-0 &#8596; LAPTOP-UE-7 Bandwidth Performance Report</title>
+</head>
+<body>
+<div id="header">
+    <h3>LAPTOP-UE-0_2_LAPTOP-UE-7 [UDP, 1 st.]</h3>
+</div>
+<div id="container">
+    <div id=one2two>
+        <h1>LAPTOP-UE-0 &#8594; LAPTOP-UE-7 Results</h1>
+        <hr>
+        <h2>By Datagram Size</h2>
+        <img src="raw-data/UDP_1_st_2020_11_02_11-45-29_one2two_summary.png">
+        <hr>
+        <h2>By Time</h2>
+        <img src="raw-data/UDP_1_st_2020_11_02_11-45-29_one2two_00032B.png">
+    </div>
+    <div id=two2one>
+        <h1>LAPTOP-UE-7 &#8594; LAPTOP-UE-0 Results</h1>
+        <hr>
+        <h2>By Datagram Size</h2>
+        <div id="missing"><div></br></br><h2>NOTICE: All tests failed to finish!</h2></br></br><h3>(See below...)</h3></div></div>
+        <hr>
+        <h2>By Time</h2>
+        <img src="raw-data/UDP_1_st_2020_11_02_11-45-29_two2one_00032B.png">
+    </div>
+</div>
+<div id="footer">
+    <p>&#169;  </p>
+</div>
+</body>
+</html>
