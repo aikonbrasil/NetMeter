@@ -110,7 +110,7 @@ Note: NTP server should be activated in order to syncronize the time clock of ea
 To run this scenario, the user should use the following script: `NetMeter_ping_multiple.py` and parameters should be configures in `NetMeterPingMultipleConfig.py`
 
 ### 6.Multiple Tests (simultaneously) between different pair of PCs to evaluate RTT (ICMP packets). Probably with same results than section 5.
-To run this scenario, the user should use the following script: `NetMeter_ping_multiple_simultaneous.py ` and parameters should be configures in `NetMeterPingMultipleSimulConfig.py`
+To run this scenario, the user should use the following script: `NetMeter_ping_multiple_simultaneous.py ` and parameters should be configures in `NetMeterPingMultipleSimulConfig`
 
 ## Running:
 
