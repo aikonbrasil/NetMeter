@@ -405,11 +405,11 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
             tmp_lst = line.strip().split(' ')
-            print(tmp_lst)
-            print(len(tmp_lst))
-            print(not tmp_lst[0].isdigit())
-            print(len(tmp_lst) != (8))
-            print((additional_fields and float(tmp_lst[-3]) <= 0))
+          #  print(tmp_lst)
+          #  print(len(tmp_lst))
+          #  print(not tmp_lst[0].isdigit())
+          #  print(len(tmp_lst) != (8))
+          #  print((additional_fields and float(tmp_lst[-3]) <= 0))
            # print(float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 1.0)
             if (
                 not tmp_lst[0].isdigit()
@@ -417,11 +417,11 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                 or (additional_fields and float(tmp_lst[-3]) <= 0)
               #  or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 1.0
                ):
-                print('entro la loop para no leer info')
+              #  print('entro la loop para no leer info')
                 continue
 
             if (int(tmp_lst[0]) > 63): #first digit should be 64
-                print('linea para procesar info')
+             #   print('linea para procesar info')
                 # If the link number is positive (i.e if it is not a summary, where it's -1)...
                 #date = datetime.strptime(tmp_lst[0], '%Y%m%d%H%M%S')
                 # ICMP Sequence number
@@ -441,14 +441,14 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
                  #   rate = rate * (float(tmp_lst[-3]) - float(tmp_lst[-4])) / float(tmp_lst[-3])
                 #if (int(tmp_lst[-2 - additional_fields]) < 0) or (rate < 0.0):
                  #   rate = np.nan
-                print(tmp_lst[-2])
+              #  print(tmp_lst[-2])
                 rtt_i = tmp_lst[-2].split('=')
                 rtt = float(rtt_i[1])
-                print('the round trip time measured is ...')
-                print(rtt)
-                print(len(iperf_data))
+               # print('the round trip time measured is ...')
+               # print(rtt)
+               # print(len(iperf_data))
                 iperf_data.append([ time_from_start, int(ref_uniq_index), rtt ])
-                print(len(iperf_data))
+               # print(len(iperf_data))
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
@@ -460,7 +460,7 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
-    print(iperf_data)
+    #print(iperf_data)
     # Sort by connection number, then by date. Get indices of the result.
    # bi_sorted_indices = np.lexsort((iperf_data[:,0],iperf_data[:,0]))
    # iperf_data = iperf_data[bi_sorted_indices]
@@ -501,16 +501,16 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
             server_fault = 'too_many'
 
     ### End connection ammount check
-    print(iperf_data)
+    #print(iperf_data)
     iperf_data = iperf_data[:,[0,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
-    print(iperf_data)
+    #print(iperf_data)
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
-    print(mean_times)
+    #print(mean_times)
     info = iperf_data[:,:,1].sum(axis=0)
-    print('vector std')
-    print(info)
-    print(len(info))
+    #print('vector std')
+    #print(info)
+    #print(len(info))
     #info_out=info
     info_out = [0] * len(info) 
     for i in range(len(info)):
@@ -527,17 +527,17 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
      # info_out[i] = hola
     #  print(info[0:i].std())
 
-    print('INFO IMPORTANTE')
+    #print('INFO IMPORTANTE')
     info_out[0]= 0
-    print(info_out)
+    #print(info_out)
 
     #iperf_stdev = info.std() * ( np.std(iperf_data[:,:,1], axis=0) +1)
     iperf_stdev = info_out
-    print(iperf_stdev)
+    #print(iperf_stdev)
     out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
     #print(out_arr)
-    print(out_arr[:,1].mean())
-    print(out_arr[:,1].std())
+    #print(out_arr[:,1].mean())
+    #print(out_arr[:,1].std())
     return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
 
 def get_mpstat_data_single(mpstat_out):
@@ -926,8 +926,8 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
             export_single_data(iperf_array, init_name + '_iperf_processed.dat')
             write_gp(init_name + '.plt', basename(init_name + '_iperf_processed.dat'),
                      mpstat_single_file, basename(init_name + '.png'),
-                     tot_iperf_mean, protocol, streams, print_unit, cl1_pretty_name,
-                     cl2_pretty_name, plot_type = 'singlesize', direction = direction,
+                     tot_iperf_mean, protocol, streams, print_unit, cl1_pretty_namee,
+                     cl2_pretty_namee, plot_type = 'singlesize', direction = direction,
                      finished = test_completed, server_fault = server_fault,
                      packet_size = p, tcpwin = tcpwin)
             print('Plotting...')
@@ -957,8 +957,8 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
             tot_iperf_mean = sum(non_failed_BW)/len(non_failed_BW)
             write_gp(combined_sumname + '.plt', basename(iperf_sumname + '.dat'),
                      mpstat_ser_file, basename(combined_sumname + '.png'),
-                     tot_iperf_mean, protocol, streams, print_unit, cl1_pretty_name,
-                     cl2_pretty_name, plot_type = 'multisize', direction = direction,
+                     tot_iperf_mean, protocol, streams, print_unit, cl1_pretty_namee,
+                     cl2_pretty_namee, plot_type = 'multisize', direction = direction,
                      server_fault = np.array(iperf_tot)[:,0], packet_size = np.mean(p_sizes),
                      tcpwin = tcpwin)
             pr = Popen([gnuplot_bin, basename(combined_sumname + '.plt')], cwd=dirname(dir_time))
@@ -974,7 +974,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
              join(raw_data_subdir, common_filename + '_two2one_summary.png'),
              one2two_images, two2one_images, html_name, protocol, streams,
              all_one2two_failed, all_two2one_failed, print_unit, localpart,
-             cl1_pretty_name, cl2_pretty_name, tcpwin)
+             cl1_pretty_namee, cl2_pretty_namee, tcpwin)
 
 
 class Multitest(object):
