@@ -24,7 +24,7 @@ from multiprocessing import Process
 # Import configuration
 from NetMeterConfigSimul import *
 
-rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
+#rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
 
 class Connect(object):
@@ -368,7 +368,7 @@ def gen_html(title, one2two_summary, two2one_summary, one2two_images, two2one_im
 def get_size_units_factor(num, rate=False):
     factor = 1.0
     if rate:
-        s = 'b/s'
+        s = 'ms'
         thousand = 1000.0
     else:
         s = 'B'
@@ -398,57 +398,125 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
     output row can be unreadable. This is also the reason for "errors='ignore'".
     '''
     iperf_data = []
+    counter = 0
     additional_fields = 0
     if protocol == 'UDP':
         additional_fields = 5
 
     with open(iperf_out, encoding='utf-8', errors='ignore') as inputfile:
         for line in inputfile:
-            tmp_lst = line.strip().split(',')
-            if (
-                not tmp_lst[0].isdigit()
-                or len(tmp_lst) != (9 + additional_fields)
-                or (additional_fields and float(tmp_lst[-3]) <= 0)
-                or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
-               ):
-                continue
+            tmp_lst = line.strip().split('/')
+            #print(len(tmp_lst))
+            #print(tmp_lst)
+            #if (
+            #    not tmp_lst[0].isdigit()
+            #    or len(tmp_lst) != (9 + additional_fields)
+            #    or (additional_fields and float(tmp_lst[-3]) <= 0)
+            #    or float(tmp_lst[-3 - additional_fields].split('-')[-1]) > repetitions * 10.0
+            #   ):
+            #    continue
 
-            if (int(tmp_lst[-4 - additional_fields]) > 0):
-                # If the link number is positive (i.e if it is not a summary, where it's -1)...
-                date = datetime.strptime(tmp_lst[0], '%Y%m%d%H%M%S')
-                if not iperf_data:
-                    first_date = date
+            if (len(tmp_lst)>5):
+            #if (len(tmp_lst)>20) and (len(tmp_lst)<37):
+              print('entro no loop deseado...')
+              lat_average_i = tmp_lst[-4]
+              lat_avg = lat_average_i.strip().split(' ')
+              #lat_average_i = tmp_lst[-10]
+              #lat_avg = lat_average_i.strip().split('/')
+              lat_average = float(lat_avg[-1])
 
-                time_from_start = float((date - first_date).total_seconds())
-                rate = float(tmp_lst[-1 - additional_fields])
-                if additional_fields:
-                    # For UDP: rate = rate * (total_datagrams - lost_datagrams) / total_datagrams
-                    rate = rate * (float(tmp_lst[-3]) - float(tmp_lst[-4])) / float(tmp_lst[-3])
-                if (int(tmp_lst[-2 - additional_fields]) < 0) or (rate < 0.0):
-                    rate = np.nan
-                iperf_data.append([ time_from_start, int(tmp_lst[-4 - additional_fields]), rate ])
+              lat_minim = float(tmp_lst[-3])
+
+              lat_maxim = float(tmp_lst[-2])
+
+              lat_std_i = tmp_lst[-1]
+              lat_std = lat_std_i.strip().split(' ')
+              lat_stand = float(lat_std[0])
+
+              #lat_min_max_i = tmp_lst[-9]
+              #lat_minmax = lat_min_max_i.strip().split('/')
+              #lat_minim = float(lat_minmax[0])
+              #lat_maxim = float(lat_minmax[1])
+
+              #lat_std = tmp_lst[-8]
+              #lat_stand = float(lat_std)
+
+
+              # TO GET THE STREAM ID
+              id_stream_i = tmp_lst[0]
+              id_stream_j = id_stream_i.strip().split(']')
+              #print(id_stream_j[0])
+              id_stream_ji = id_stream_j[0]
+              id_stream_jid = id_stream_ji.strip().split('[')
+              #print(id_stream_jid)
+              id_stream = int(id_stream_jid[1])
+
+              #To GET THE TIME FROM START
+              #time_from_start = counter * 10
+              #print('counter ...')
+              #print(counter)
+              counter = counter + 1
+              time_start_i = id_stream_i.strip().split(' ')
+              #print('time to start inicial')
+              #print(time_start_i)
+              time_start_ii = time_start_i[3]
+              time_start_iii = time_start_ii.strip().split('-')
+              #print(time_start_iii)
+
+              time_from_start = float(time_start_iii[0])
+              time_from_end = float(time_start_iii[1])
+              #print('time to start')
+              #print(time_from_start)
+              #print('time to End')
+              #print(time_from_end)
+
+              if ((time_from_end-time_from_start) == 10): #Interval greater than 10 sec.
+                  #print('paso ok aqui ')
+                  iperf_data.append([ time_from_start, lat_average, lat_stand, id_stream ])
+
+
+
+             # print('paso ok aqui ')
+              #iperf_data.append([time_from_start, lat_average, lat_stand, id_stream])
+    #iperf_data.pop(-1)
+
 
     if not iperf_data:
         raise ValueError('Nothing reached the server.')
 
     iperf_data = np.array(iperf_data)
-    conns = np.unique(iperf_data[:,1])
+    conns = np.unique(iperf_data[:,3])
     num_conn = conns.shape[0]
     if num_conn < streams:
         raise ValueError(str(num_conn) + ' out of ' + str(streams) + ' streams reached the server.')
     elif num_conn > streams:
         raise ValueError(str(num_conn) + ' connections reached the server (' + str(streams) + ' expected).')
+    print( 'paso bien por la funcion' )
+
+    print('iperf_data initial antes del pre processamiento')    
+    print(iperf_data)
 
     # Sort by connection number, then by date. Get indices of the result.
-    bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,1]))
+    bi_sorted_indices = np.lexsort((iperf_data[:,0], iperf_data[:,3]))
     iperf_data = iperf_data[bi_sorted_indices]
+    print('Sorted by connection number and then by date')
+    print(iperf_data)
+
     ### Mechanism to check if too few or too many connections received
     # Get the index of the line after the last of each connection
-    conn_ranges = np.searchsorted(iperf_data[:,1], conns, side='right')
+    conn_ranges = np.searchsorted(iperf_data[:,3], conns, side='right')
+    print('print of conn_ranges')
+    print(conn_ranges)
+
     # Get sizes of connection blocks
     conn_count = np.diff(np.insert(conn_ranges, 0, 0))
     server_fault = False
     conn_reached = conn_count.min()
+    print('print of conn_count')
+    print(conn_count)
+    print('print of conn_reached')
+    print(conn_reached)
+
     if conn_reached < repetitions:
         # If there was at least one occasion when there were fewer connections than expected
         server_fault = 'too_few'
@@ -456,7 +524,11 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
 
     # Get indices of connection block sizes that are bigger than expected (if any)
     where_extra_conn = (conn_count > repetitions).nonzero()[0]
+    print(repetitions)
+    print(conn_count)
+    print(where_extra_conn)
     if where_extra_conn.size:
+        print('Entro al loop donde modifica el iperf_data')
         ## If there were connection blocks bigger than expected
         # Get indices of lines after the last (n+1) for removal
         remove_before_lines = conn_ranges[where_extra_conn]
@@ -477,13 +549,27 @@ def get_iperf_data_single(iperf_out, protocol, streams, repetitions):
         if not server_fault:
             server_fault = 'too_many'
 
+    print('final modifications iperf_data...')
+    print(iperf_data)
     ### End connection ammount check
-    iperf_data = iperf_data[:,[0,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 2))
+    iperf_data = iperf_data[:,[0,1,2]].reshape((num_conn, iperf_data.shape[0]//num_conn, 3))
+    print('Number of Connections (num_conn')
+    print(num_conn)
+    print('ammount checking...')
+    print(iperf_data)
     iperf_data = np.ma.masked_array(iperf_data, np.isnan(iperf_data))
+    print('ammount after masked array...')
+    print(iperf_data)
     mean_times = np.mean(iperf_data[:,:,0], axis=0)
-    iperf_stdev = np.std(iperf_data[:,:,1], axis=0) * np.sqrt(num_conn)
-    out_arr = np.vstack((mean_times, iperf_data[:,:,1].sum(axis=0), iperf_stdev)).filled(np.nan).T
+    iperf_stdev = np.mean(iperf_data[:,:,2], axis=0) #* np.sqrt(num_conn)
+    out_arr = np.vstack((mean_times, iperf_data[:,:,1].mean(axis=0), iperf_stdev)).filled(np.nan).T
+    print(mean_times)
+    print(iperf_stdev)
+    print(out_arr)
+
+    #return iperf_data
     return out_arr, out_arr[:,1].mean(), out_arr[:,1].std(), server_fault
+
 
 
 def get_mpstat_data_single(mpstat_out):
@@ -525,7 +611,7 @@ def get_mpstat_data_single(mpstat_out):
 
 
 def export_single_data(data_processed, data_outname):
-    np.savetxt(data_outname, data_processed, fmt='%g', header='TimeStamp(s) Sum Stdev')
+    np.savetxt(data_outname, data_processed, fmt='%g', header='TimeStamp(s) Latency-avg(ms) Stdev')
 
 
 def plot_iperf_data(passed, plot_type, net_dat_file):
@@ -549,7 +635,7 @@ def plot_iperf_data(passed, plot_type, net_dat_file):
     xtic_explicit = ':xtic(printxsizes($2))'
     xtic = ['', xtic_explicit, xtic_explicit, xtic_explicit]
     point_color = ['blue', 'blue', 'blue', 'magenta']
-    title = ['Mean tot. BW', 'Mean tot. BW', 'Mean tot. BW', 'Approx. BW']
+    title = ['Mean tot. Latency', 'Mean tot. Latency', 'Mean tot. Latency', 'Approx. Latency']
     initial_points = (
                       '     "" using {0}:({1}${2}/rf{3}){4} with points'
                             ' pt 2 ps 1.5 lw 3 lc rgb "{5}" title "{6}", \\\n'
@@ -583,7 +669,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
         rate_format = ''
     except:
         net_rate = '???'
-        rate_units = 'b/s'
+        rate_units = 'ms'
         rate_factor = '1.0'
         rate_format = 'set format y "%.1tx10^%T"\n'
 
@@ -635,14 +721,11 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
     tcp_win_msg = gen_tcp_win_msg(tcpwin)
     warning_message = ''
     if not finished:
-        #warning_message = 'set label "Warning:\\nTest failed to finish!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
-        warning_message = ''
+        warning_message = 'set label "Warning:\\nTest failed to finish!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
     elif server_fault == 'too_few':
-        #warning_message = 'set label "Warning:\\nToo few connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
-        warning_message = ''
+        warning_message = 'set label "Warning:\\nToo few connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
     elif server_fault == 'too_many':
-        #warning_message = 'set label "Warning:\\nToo many connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
-        warning_message = ''
+        warning_message = 'set label "Warning:\\nToo many connections!\\nResults may not be accurate!" at screen 0.01, screen 0.96 tc rgb "red"\n'
 
     plot_net_data = plot_iperf_data(server_fault, plot_type, net_dat_file)
     content = (
@@ -653,7 +736,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
                + rate_format + warning_message +
                '\n'
                'set xlabel "' + x_title + '"\n'
-               'set ylabel "Bandwidth (' + rate_units + ')"\n'
+               'set ylabel "Latency (' + rate_units + ')"\n'
                'set ytics nomirror\n'
                + y2_axis +
                'set key bmargin center horizontal box samplen 1 width -1\n'
@@ -677,7 +760,7 @@ def set_protocol_opts(protocol, tcpwin, client = True):
         return []
     elif protocol == 'UDP':
         if client:
-            return ['-u', '-b', '100M']
+            return ['-u', '-b', '1M']
         else:
             return ['-u']
 
@@ -696,9 +779,10 @@ def bend_max_size(size, protocol):
         return size
 
 
+#def run_server(protocol, init_name, dir_time, conn, tcpwin):
 def run_server(protocol, init_name, dir_time, conn, tcpwin, port_iperf):
-    iperf_args = ['-s', '-i', '10', '-y', 'C']
-    #iperf_args = ['-s', '-1', '10']
+    #iperf_args = ['-s', '-i', '10', '-y', 'C']
+    iperf_args = ['-s', '-i', '10', '-e']
     protocol_opts = set_protocol_opts(protocol, tcpwin, client = False)
     iperf_args += protocol_opts
     port_args = ['-p', str(port_iperf)]
@@ -711,6 +795,8 @@ def run_server(protocol, init_name, dir_time, conn, tcpwin, port_iperf):
     sleep(10)
 
 
+#def run_client(server_addr, runtime, p_size, streams, init_name, dir_time,
+#               protocol, conn, localpart, tcpwin):
 def run_client(server_addr, runtime, p_size, streams, init_name, dir_time,
                protocol, conn, localpart, tcpwin, port_iperf):
     p_size = bend_max_size(p_size, protocol)
@@ -778,10 +864,15 @@ def stop_server(conn, dir_time):
     sleep(10)
 
 
+#def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
+#              streams, timestamp, test_title, protocol, tcpwin, export_dir):
 def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
               streams, timestamp, test_title, protocol, tcpwin, export_dir, par_name, port_iperf, cl1_pretty_namee, cl2_pretty_namee):
     series_time = str(timedelta(seconds = 2 * len(p_sizes) * (runtime + 30) + 20))
     tprint('\033[92mStarting ' + protocol + ' tests.\033[0m Expected run time: ' + series_time)
+    print('NAME OF VAARIBALE')
+    print(cl1_conn)
+    #top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st_' + test_title
     top_dir_name = par_name + '_' + timestamp + '_' + protocol + '_' + str(streams) + '_st'
     common_filename = protocol + '_' + str(streams) + '_st_' + timestamp
     print_unit = 'Buffer' if protocol == 'TCP' else 'Datagram'
@@ -817,6 +908,10 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
             combined_sumname = dir_time + '_' + direction + '_summary'
             print('++++++++++++++++++++++++++++++++++++++++++++++++++')
             try:
+              #  run_server(protocol, init_name, dir_time, server_conn, tcpwin)
+              #  test_completed, repetitions = run_client(server_addr, runtime, p, streams,
+              #                                           init_name, dir_time, protocol,
+              #                                           client_conn, localpart, tcpwin)
                 run_server(protocol, init_name, dir_time, server_conn, tcpwin, port_iperf)
                 test_completed, repetitions = run_client(server_addr, runtime, p, streams,
                                                          init_name, dir_time, protocol,
@@ -833,6 +928,11 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
 
                 (iperf_array, tot_iperf_mean, tot_iperf_stdev, server_fault) =\
                 get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
+                #(iperf_array) =\
+                #get_iperf_data_single(init_name + '_iperf.dat', protocol, streams, repetitions)
+                server_fault = ''
+                #tot_iperf_mean = 15
+                #tot_iperf_stdev = 6
                 if server_fault == 'too_few':
                     print('\033[93mWARNING:\033[0m The server received fewer connections than expected.')
                 elif server_fault == 'too_many':
@@ -874,7 +974,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
             print(plot_message)
             np.savetxt(iperf_sumname + '.dat', iperf_tot, fmt='%g',
                        header= ('TestOK ' + print_unit +
-                                'Size(B) BW(b/s) Stdev(b/s) BW(' +
+                                'Size(B) L(ms) Stdev(ms) BW(' +
                                 rate_units + ')'))
 
             if localpart:
@@ -933,6 +1033,7 @@ class Multitest(object):
                       self.cl2_test_ip, self.runtime, self.p_sizes, streams,
                       self.timestamp, self.test_title, p, self.tcpwin,
                       self.export_dir, self.parname, self.port_iperf, self.cl1_pretty_namee, self.cl2_pretty_namee)
+
 
     def run_tests_for_streams(self, stream_list, proto_list):
         for s in stream_list:
