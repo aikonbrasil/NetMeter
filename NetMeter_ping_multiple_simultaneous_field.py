@@ -846,10 +846,11 @@ def stop_client(conn, dir_time):
 
 
 def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
-              streams, timestamp, test_title, protocol, tcpwin, export_dir):
+              streams, timestamp, test_title, protocol, tcpwin, export_dir, par_name, cl1_pretty_namee, cl2_pretty_namee):
     series_time = str(timedelta(seconds = 2 * len(p_sizes) * (runtime + 30) + 20))
     tprint('\033[92mStarting ' + protocol + ' tests.\033[0m Expected run time: ' + series_time)
-    top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st'
+    top_dir_name = par_name + '_' + timestamp + '_' + protocol + '_' + str(streams) + '_st'
+    #top_dir_name = timestamp + '_' + protocol + '_' + str(streams) + '_st'
     common_filename = protocol + '_' + str(streams) + '_st_' + timestamp
     print_unit = 'Buffer' if protocol == 'TCP' else 'Datagram'
     raw_data_subdir="raw-data"
@@ -978,7 +979,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
 
 class Multitest(object):
     def __init__(self, cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime,
-                 p_sizes, timestamp, test_title, tcpwin, export_dir):
+                 p_sizes, timestamp, test_title, tcpwin, export_dir, par_name, cl1_pretty_namee, cl2_pretty_namee):
         self.cl1_conn    = cl1_conn
         self.cl2_conn    = cl2_conn
         self.cl1_test_ipp = cl1_test_ipp
@@ -989,13 +990,16 @@ class Multitest(object):
         self.test_title  = test_title
         self.tcpwin      = tcpwin
         self.export_dir  = export_dir
+        self.par_name    = par_name
+        self.cl1_pretty_namee = cl1_pretty_namee
+        self.cl2_pretty_namee = cl2_pretty_namee
 
     def run_tests_for_protocols(self, streams, proto_list):
         for p in proto_list:
             run_tests(self.cl1_conn, self.cl2_conn, self.cl1_test_ipp,
                       self.cl2_test_ipp, self.runtime, self.p_sizes, streams,
                       self.timestamp, self.test_title, p, self.tcpwin,
-                      self.export_dir)
+                      self.export_dir, self.par_name, self.cl1_pretty_namee, self.cl2_pretty_namee)
 
     def run_tests_for_streams(self, stream_list, proto_list):
         for s in stream_list:
@@ -1014,7 +1018,7 @@ class Multitest(object):
 def mainfunc1():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
     #cl2_pretty_name = cl2_pretty_name
-
+    par_name1 = 'pc0TOpc1'
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
     cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
@@ -1032,7 +1036,7 @@ def mainfunc1():
     title = cl1_pretty_name+'_2_'+cl2_pretty_name
     testinsts = Multitest(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip,
                           run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir)
+                          tcp_win_size, export_dir, par_name1, cl1_pretty_name, cl2_pretty_name)
     testinsts.run_tests_for_streams(streams, protocols)
 
 
@@ -1040,7 +1044,7 @@ def mainfunc1():
 def mainfunc2():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
     #cl2_pretty_name = cl3_pretty_name
-
+    par_name2 = 'pc0TOpc2'
   # TESTE 02
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1058,7 +1062,7 @@ def mainfunc2():
     title = cl1_pretty_name+'_2_'+cl3_pretty_name
     testinsts = Multitest(cl1_conn, cl3_conn, cl1_test_ip, cl3_test_ip,
                           run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir)
+                          tcp_win_size, export_dir, par_name2, cl1_pretty_name, cl3_pretty_name)
     testinsts.run_tests_for_streams(streams, protocols)
 
   
@@ -1067,6 +1071,7 @@ def mainfunc2():
 def mainfunc3():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
    # cl2_pretty_name = cl4_pretty_name
+    par_name3 = 'pc0TOpc3'
   # TESTE 03
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1084,7 +1089,7 @@ def mainfunc3():
     title = cl1_pretty_name+'_2_'+cl4_pretty_name
     testinsts = Multitest(cl1_conn, cl4_conn, cl1_test_ip, cl4_test_ip,
                           run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir)
+                          tcp_win_size, export_dir, par_name3, cl1_pretty_name, cl4_pretty_name)
     testinsts.run_tests_for_streams(streams, protocols)
 
 
@@ -1096,6 +1101,7 @@ def mainfunc4():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
   #  cl2_pretty_name = cl5_pretty_name
   # TESTE 04
+    par_name4 = 'pc0TOpc4'
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
     cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
@@ -1112,7 +1118,7 @@ def mainfunc4():
     title = cl1_pretty_name+'_2_'+cl5_pretty_name
     testinsts = Multitest(cl1_conn, cl5_conn, cl1_test_ip, cl5_test_ip,
                           run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir)
+                          tcp_win_size, export_dir, par_name4, cl1_pretty_name, cl5_pretty_name)
     testinsts.run_tests_for_streams(streams, protocols)
 
 
@@ -1122,6 +1128,7 @@ def mainfunc5():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
    # cl2_pretty_name = cl6_pretty_name
   # TESTE 05
+    par_name5 = 'pc0TOpc5'
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
     cl1_conn = Connect(access_method_cl1, cl1_conn_ip, 'cl1', cl1_iperf, ssh_port_cl1, creds_cl1)
@@ -1138,7 +1145,7 @@ def mainfunc5():
     title = cl1_pretty_name+'_2_'+cl6_pretty_name
     testinsts = Multitest(cl1_conn, cl6_conn, cl1_test_ip, cl6_test_ip,
                           run_duration, test_range, rundate, title,
-                          tcp_win_size, export_dir)
+                          tcp_win_size, export_dir, par_name5, cl1_pretty_name, cl6_pretty_name)
     testinsts.run_tests_for_streams(streams, protocols)
 
 
