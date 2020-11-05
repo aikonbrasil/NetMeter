@@ -1,0 +1,25 @@
+------------------------------------------------------------
+Server listening on UDP port 5003 with pid 14172
+Receiving 1470 byte datagrams
+UDP buffer size:  176 KByte (default)
+------------------------------------------------------------
+[  3] local 192.168.241.13 port 5003 connected with 100.100.100.10 port 53910
+[  4] local 192.168.241.13 port 5003 connected with 100.100.100.10 port 60892
+[  5] local 192.168.241.13 port 5003 connected with 100.100.100.10 port 38031
+[ ID] Interval            Transfer     Bandwidth        Jitter   Lost/Total  Latency avg/min/max/stdev PPS  NetPwr
+[  3] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   4.172 ms    0/  893 (0%) 87.409/10.647/407.231/102.812 ms   89 pps  1.50
+[  4] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   3.439 ms    0/  892 (0%) 88.872/10.515/413.502/103.586 ms   89 pps  1.48
+[  5] 0.0000-10.0000 sec  1.25 MBytes  1.05 Mbits/sec   5.185 ms    0/  890 (0%) 89.949/10.554/412.817/103.231 ms   89 pps  1.45
+[SUM] 0.0000-10.0000 sec  3.75 MBytes  3.15 Mbits/sec  0/0        0 pps
+[  3] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec  11.378 ms    0/  891 (0%) 94.617/10.695/427.393/107.733 ms   89 pps  1.38
+[  4] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec  11.843 ms    0/  890 (0%) 94.573/10.650/433.586/107.464 ms   89 pps  1.38
+[  5] 10.0000-20.0000 sec  1.25 MBytes  1.05 Mbits/sec  11.520 ms    0/  890 (0%) 96.261/10.695/433.073/107.763 ms   89 pps  1.36
+[SUM] 10.0000-20.0000 sec  3.74 MBytes  3.14 Mbits/sec  0/0        0 pps
+[  3] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.085 ms    0/  893 (0%) 110.808/10.788/423.808/114.617 ms   89 pps  1.18
+[  4] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.709 ms    0/  893 (0%) 111.716/10.758/425.724/114.908 ms   89 pps  1.18
+[  5] 20.0000-30.0000 sec  1.25 MBytes  1.05 Mbits/sec   6.833 ms    0/  893 (0%) 112.127/10.765/425.009/114.240 ms   89 pps  1.17
+[SUM] 20.0000-30.0000 sec  3.76 MBytes  3.15 Mbits/sec  0/0        0 pps
+[  3] 0.0000-31.2748 sec  3.88 MBytes  1.04 Mbits/sec  23.831 ms    0/ 2765 (0%) 97.877/10.647/427.393/109.554 ms   88 pps  1.33
+[  4] 0.0000-31.2752 sec  3.88 MBytes  1.04 Mbits/sec  23.235 ms    0/ 2765 (0%) 98.742/10.515/433.586/109.903 ms   88 pps  1.32
+[  5] 0.0000-31.2752 sec  3.88 MBytes  1.04 Mbits/sec  21.821 ms    0/ 2765 (0%) 100.010/10.554/433.073/109.701 ms   88 pps  1.30
+[SUM] 0.0000-31.2752 sec  11.6 MBytes  3.12 Mbits/sec  0/0        0 pps
