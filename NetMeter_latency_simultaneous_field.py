@@ -1005,7 +1005,7 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
              join(raw_data_subdir, common_filename + '_two2one_summary.png'),
              one2two_images, two2one_images, html_name, protocol, streams,
              all_one2two_failed, all_two2one_failed, print_unit, localpart,
-             cl1_pretty_name, cl2_pretty_name, tcpwin)
+             cl1_pretty_namee, cl2_pretty_namee, tcpwin)
 
 
 class Multitest(object):
