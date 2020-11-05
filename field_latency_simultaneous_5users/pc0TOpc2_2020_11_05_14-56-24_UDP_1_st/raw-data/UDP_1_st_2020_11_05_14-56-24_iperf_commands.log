@@ -1,0 +1,3 @@
+[ 14:56:24 ] cl1: killall -9 iperf
+[ 14:56:25 ] cl3: killall -9 iperf
+[ 14:56:25 ] cl3: iperf -s -i 10 -e -u -p 5002
