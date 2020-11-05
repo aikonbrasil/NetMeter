@@ -76,7 +76,7 @@ If the IPs and the software dependencies are well installed in both, client and 
 - create a new file in the folder that was created  before: `touch ~/.ssh/authorized_keys`
 - add specific authorization access to this file: `chmod 600 ~/.ssh/authorized_keys`
 
-Now in your server (or local device) you should create a private and publick key. If you do not know how to do it, please use the following reference (https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2). After you created the public and private key, do the following:
+Now in your server (or local device) you should create a private and publick key. If you do not know how to do it, please use the following reference [ssh-Key generation](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2). After you created the public and private key, do the following:
 - open with the public key with vim (or other text reader/editor) and copy paste it on the file `authorized_keys` that was created in the remote device.
 - restart the sshd daemon using: `systemctl restart sshd`
 
