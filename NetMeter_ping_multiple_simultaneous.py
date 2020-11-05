@@ -19,10 +19,10 @@ from subprocess import Popen, PIPE
 from os import makedirs
 from os.path import isdir, isfile, join
 from ntpath import dirname, basename
-from multiprocessing import Process
+from multiprocessing  import Process
 
 # Import configuration
-from NetMeterPingMultipleConfig import *
+from NetMeterPingMultipleSimulConfig import *
 
 rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
