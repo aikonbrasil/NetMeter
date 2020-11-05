@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Server listening on TCP port 5005 with pid 140240
+Read buffer size:  128 KByte
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+[  4] local 100.100.100.10 port 5005 connected with 192.168.241.15 port 60836
+[ ID] Interval            Transfer    Bandwidth       Reads   Dist(bin=16.0K)
+[  4] 0.0000-10.0000 sec   416 KBytes   341 Kbits/sec  263    260:2:1:0:0:0:0:0
+[  4] 10.0000-20.0000 sec   394 KBytes   323 Kbits/sec  246    245:1:0:0:0:0:0:0
+[  4] 20.0000-30.0000 sec   396 KBytes   325 Kbits/sec  291    290:1:0:0:0:0:0:0
+[  4] 0.0000-32.6996 sec  1.38 MBytes   353 Kbits/sec  938    932:5:1:0:0:0:0:0

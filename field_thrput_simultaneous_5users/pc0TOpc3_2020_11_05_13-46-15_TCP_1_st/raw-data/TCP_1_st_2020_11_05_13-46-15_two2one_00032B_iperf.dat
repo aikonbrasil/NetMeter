@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Server listening on TCP port 5003 with pid 140243
+Read buffer size:  128 KByte
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+[  4] local 100.100.100.10 port 5003 connected with 192.168.241.13 port 53238
+[ ID] Interval            Transfer    Bandwidth       Reads   Dist(bin=16.0K)
+[  4] 0.0000-10.0000 sec  5.05 MBytes  4.24 Mbits/sec  3325    3325:0:0:0:0:0:0:0
+[  4] 10.0000-20.0000 sec  4.83 MBytes  4.05 Mbits/sec  3209    3209:0:0:0:0:0:0:0
+[  4] 20.0000-30.0000 sec  4.82 MBytes  4.04 Mbits/sec  3254    3254:0:0:0:0:0:0:0
+[  4] 0.0000-35.2943 sec  17.9 MBytes  4.25 Mbits/sec  11567    11567:0:0:0:0:0:0:0

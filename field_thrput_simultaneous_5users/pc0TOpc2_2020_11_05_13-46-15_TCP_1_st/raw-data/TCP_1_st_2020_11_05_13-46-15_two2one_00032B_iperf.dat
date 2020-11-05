@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Server listening on TCP port 5002 with pid 140221
+Read buffer size:  128 KByte
+TCP window size:  128 KByte (default)
+------------------------------------------------------------
+[  4] local 100.100.100.10 port 5002 connected with 192.168.241.12 port 42954
+[ ID] Interval            Transfer    Bandwidth       Reads   Dist(bin=16.0K)
+[  4] 0.0000-10.0000 sec  5.25 MBytes  4.40 Mbits/sec  3402    3402:0:0:0:0:0:0:0
+[  4] 10.0000-20.0000 sec  5.20 MBytes  4.36 Mbits/sec  3401    3401:0:0:0:0:0:0:0
+[  4] 20.0000-30.0000 sec  5.00 MBytes  4.20 Mbits/sec  3366    3366:0:0:0:0:0:0:0
+[  4] 0.0000-34.8087 sec  18.1 MBytes  4.37 Mbits/sec  11887    11887:0:0:0:0:0:0:0
