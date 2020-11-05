@@ -80,10 +80,24 @@ Now in your server (or local device) you should create a private and publick key
 - open with the public key with vim (or other text reader/editor) and copy paste it on the file `authorized_keys` that was created in the remote device.
 - restart the sshd daemon using: `systemctl restart sshd`
 
-
+ 
 
 ## Scenarios:
-### 
+### Individual tests between 2 PCs
+This is the original scenario supported by the reference project in [Reference](https://github.com/daynix/NetMeter).
+
+### Multiple Tests (non simultaneously) between different pair of PCs to evaluate Throughput.
+To run this scenario, the user should use the following script: `NetMeter_througput_multiple.py` and parameters should be configured in ` NetMeterMultipleConfig.py`
+
+Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
+
+### Multiple Tests (simultaneously) between different pair of PCs to evaluate Throughput.
+To run this scenario, the user should use the following script: `NetMeter_simultaneous_througput_field.py` and parameters should be configured in `NetMeterConfigSimul.py`
+
+Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
+
+### Multiple Tests (non simultaneously) between different pair of PCs to evaluate Latency.
+To run this scenario, the user should use the following script: `NetMeter_latency_multiple.py` and parameters should be configures in `NetMeterMultipleConfig.py`
 
 ## Running:
 
