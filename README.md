@@ -83,20 +83,20 @@ Now in your server (or local device) you should create a private and publick key
  
 
 ## Scenarios:
-### Individual tests between 2 PCs
+### 0.Individual tests between 2 PCs
 This is the original scenario supported by the reference project in [Reference](https://github.com/daynix/NetMeter).
 
-### Multiple Tests (non simultaneously) between different pair of PCs to evaluate Throughput.
+### 1.Multiple Tests (non simultaneously) between different pair of PCs to evaluate Throughput.
 To run this scenario, the user should use the following script: `NetMeter_througput_multiple.py` and parameters should be configured in ` NetMeterMultipleConfig.py`
 
 Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
 
-### Multiple Tests (simultaneously) between different pair of PCs to evaluate Throughput.
+### 2.Multiple Tests (simultaneously) between different pair of PCs to evaluate Throughput.
 To run this scenario, the user should use the following script: `NetMeter_simultaneous_througput_field.py` and parameters should be configured in `NetMeterConfigSimul.py`
 
 Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
 
-### Multiple Tests (non simultaneously) between different pair of PCs to evaluate Latency.
+### 3.Multiple Tests (non simultaneously) between different pair of PCs to evaluate Latency.
 To run this scenario, the user should use the following script: `NetMeter_latency_multiple.py` and parameters should be configures in `NetMeterMultipleConfig.py`
 
 ## Running:
