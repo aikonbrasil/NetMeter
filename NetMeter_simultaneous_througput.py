@@ -1095,9 +1095,9 @@ if __name__ == '__main__':
   p2.start()
   p3 = Process(target=mainfunc3)
   p3.start()
-  p4 = Process(target=mainfunc3)
+  p4 = Process(target=mainfunc4)
   p4.start()
-  p5 = Process(target=mainfunc3)
+  p5 = Process(target=mainfunc5)
   p5.start()
 
   p1.join()
