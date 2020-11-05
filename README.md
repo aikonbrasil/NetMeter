@@ -92,7 +92,7 @@ To run this scenario, the user should use the following script: `NetMeter_throug
 Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
 
 ### 2.Multiple Tests (simultaneously) between different pair of PCs to evaluate Throughput.
-To run this scenario, the user should use the following script: `NetMeter_simultaneous_througput_field.py` and parameters should be configured in `NetMeterConfigSimul.py`
+To run this scenario, the user should use the following script: `NetMeter_simultaneous_througput.py` and parameters should be configured in `NetMeterConfigSimul.py`
 
 Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
 
