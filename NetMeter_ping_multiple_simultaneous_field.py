@@ -704,7 +704,7 @@ def write_gp(gp_outname, net_dat_file, proc_dat_file, img_file, net_rate,
                + rate_format + warning_message +
                '\n'
                'set xlabel "' + x_title + '"\n'
-               'set ylabel "Bandwidth (' + rate_units + ')"\n'
+               'set ylabel "Latency ICMP (' + rate_units + ')"\n'
                'set ytics nomirror\n'
                + y2_axis +
                'set key bmargin center horizontal box samplen 1 width -1\n'
