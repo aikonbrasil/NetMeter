@@ -1013,7 +1013,7 @@ class Multitest(object):
     # Interrupt handling
 def mainfunc1():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    cl2_pretty_name = cl2_pretty_name
+    #cl2_pretty_name = cl2_pretty_name
 
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1039,7 +1039,7 @@ def mainfunc1():
 
 def mainfunc2():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    cl2_pretty_name = cl3_pretty_name
+    #cl2_pretty_name = cl3_pretty_name
 
   # TESTE 02
     signal.signal(signal.SIGINT, interrupt_exit)
@@ -1055,7 +1055,7 @@ def mainfunc2():
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'_2_'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl3_pretty_name
     testinsts = Multitest(cl1_conn, cl3_conn, cl1_test_ip, cl3_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1066,7 +1066,7 @@ def mainfunc2():
 
 def mainfunc3():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    cl2_pretty_name = cl4_pretty_name
+   # cl2_pretty_name = cl4_pretty_name
   # TESTE 03
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1081,7 +1081,7 @@ def mainfunc3():
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'_2_'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl4_pretty_name
     testinsts = Multitest(cl1_conn, cl4_conn, cl1_test_ip, cl4_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1094,7 +1094,7 @@ def mainfunc3():
 
 def mainfunc4():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    cl2_pretty_name = cl5_pretty_name
+  #  cl2_pretty_name = cl5_pretty_name
   # TESTE 04
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1109,7 +1109,7 @@ def mainfunc4():
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'_2_'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl5_pretty_name
     testinsts = Multitest(cl1_conn, cl5_conn, cl1_test_ip, cl5_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
@@ -1120,7 +1120,7 @@ def mainfunc4():
 
 def mainfunc5():
     rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
-    cl2_pretty_name = cl6_pretty_name
+   # cl2_pretty_name = cl6_pretty_name
   # TESTE 05
     signal.signal(signal.SIGINT, interrupt_exit)
     # Getting connections
@@ -1135,7 +1135,7 @@ def mainfunc5():
         tprint('\033[92mExpected total run time: \033[0m' + '\033[91m' + total_time + '\033[0m')
 
     # Run tests
-    title = cl1_pretty_name+'_2_'+cl2_pretty_name
+    title = cl1_pretty_name+'_2_'+cl6_pretty_name
     testinsts = Multitest(cl1_conn, cl6_conn, cl1_test_ip, cl6_test_ip,
                           run_duration, test_range, rundate, title,
                           tcp_win_size, export_dir)
