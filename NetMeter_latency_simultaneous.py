@@ -22,7 +22,7 @@ from ntpath import dirname, basename
 from multiprocessing import Process
 
 # Import configuration
-from NetMeterConfigSimulLatency  NetMeterConfigSimulLatency import *
+from NetMeterConfigSimulLatency  import *
 
 #rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
