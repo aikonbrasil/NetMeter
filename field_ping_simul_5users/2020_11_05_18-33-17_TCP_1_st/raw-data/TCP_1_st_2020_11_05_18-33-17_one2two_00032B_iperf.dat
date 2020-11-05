@@ -1,0 +1,2 @@
+PING 100.100.100.10 (100.100.100.10) 56(84) bytes of data.
+64 bytes from 100.100.100.10: icmp_seq=1 ttl=61 time=17.6 ms
