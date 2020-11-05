@@ -70,7 +70,7 @@ These options are:
 * `debug`: [boolean] Turn the debugging mode on or off. In debugging mode all the Iperf commands that are executed will be shown.
 
 ## SSH Key Configuration
-If the IPs and the software dependencies are well installed in both, client and server, the script will automatically try to create a SSH-Key, which will  be used in the following tests. However, in case it fails, the user should add these keys manually following the next steps:
+If the IPs and the software dependencies are well installed in both, client and server, the script will automatically try to create a SSH-Key, which will  be used in the following tests. However, in case it fails(you will get a message like `Permission denied (publickey,password)`), the user should add these keys manually following the next steps:
 - login via ssh in the remote device and run the following: `  mkdir -p ~/.ssh `
 - after that run the next command to provide specific rights: `chmod 700 ~/.ssh`
 - create a new file in the folder that was created  before: `touch ~/.ssh/authorized_keys`
