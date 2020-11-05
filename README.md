@@ -1,16 +1,15 @@
 # Network Performance Testing with NetMeter
 
 ## Source
-This tool was clone from
-https://github.com/daynix/NetMeter
+This tool is based on the project https://github.com/daynix/NetMeter. Many key improvements were added such as, multiple trigger sessions for throughput validateion, simultaneous testing for throughput validation, latency measurement for individual and simultaneous validation.
 
 ## Summary
 
-To automate the Iperf testing procedures between two clients, and to present the test results graphically, in easily understandable format, the NetMeter script can be used. It is designed to perform Iperf tests in both directions, with different packet sizes, varying amount of streams, and varying test times. The results are reported on an html page with a clear graphical representation ([sample](http://daynix.github.io/NetMeter/SamplePage.html)). Besides the graphs, all the data files (raw and processed) and the scripts that are used to draw the plots are saved. This is done so that, for example, a need for modifications in one of the tests or plots will not require performing an entire run again, but rather the modification of a single text file. NetMeter is also aware of Iperf malfunctions, which are quite common in certain scenarios.
+the NetMeter script can be used to automate the Iperf testing procedures between two o N clients, and to present the test results graphically, in easily understandable format. It is designed to perform Iperf tests in both directions, with different packet sizes, varying amount of streams, and varying test times. The results are reported on an html page with a clear graphical representation. Besides the graphs, all the data files (raw and processed) and the scripts that are used to draw the plots are saved. This is done so that, for example, a need for modifications in one of the tests or plots will not require performing an entire run again, but rather the modification of a single text file. NetMeter is also aware of Iperf malfunctions, which are quite common in certain scenarios.
 
 Because all the data and the plot-drawing scripts are preserved and can be changed manually or by scripting, NetMeter can be used in many scenarios.
 
-NetMeter works between a Linux local machine, and Linux or Windows clients, when one of the clients can be the local machine itself. CPU Measurements are provided as well in such case. NetMeter can measure the bandwidth on other network adapters than the ones it connects to for control, which adds to its flexibility.
+NetMeter works between a Linux local machine, and Linux or Windows clients, when one of the clients can be the local machine itself. CPU Measurements are provided as well in such case. NetMeter can measure the bandwidth on other network adapters than the ones it connects to for control, which adds to its flexibility. However, most of the testes were done in Linux (ArchLinux).
 
 ## Prerequisites:
 
@@ -69,6 +68,22 @@ These options are:
 * `cl[1|2]_pretty_name`: [string] A very short and informative name for each of the clients. This will be printed on the plots and on the report. (Example: `'Ubuntu VM'`)
 * `shutdown`: [boolean] Set to `True` in order to shut down both the clients after all the tests are done, or `False` otherwise. Useful when doing long/overnight tests. _NOTE_: the local machine will **not** shut down, even if it is one of the clients.
 * `debug`: [boolean] Turn the debugging mode on or off. In debugging mode all the Iperf commands that are executed will be shown.
+
+## SSH Key Configuration
+If the IPs and the software dependencies are well installed in both, client and server, the script will automatically try to create a SSH-Key, which will  be used in the following tests. However, in case it fails, the user should add these keys manually following the next steps:
+- login via ssh in the remote device and run the following: `  mkdir -p ~/.ssh `
+- after that run the next command to provide specific rights: `chmod 700 ~/.ssh`
+- create a new file in the folder that was created  before: `touch ~/.ssh/authorized_keys`
+- add specific authorization access to this file: `chmod 600 ~/.ssh/authorized_keys`
+
+Now in your server (or local device) you should create a private and publick key. If you do not know how to do it, please use the following reference (https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-2). After you created the public and private key, do the following:
+- open with the public key with vim (or other text reader/editor) and copy paste it on the file `authorized_keys` that was created in the remote device.
+- restart the sshd daemon using: `systemctl restart sshd`
+
+
+
+## Scenarios:
+### 
 
 ## Running:
 
