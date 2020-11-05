@@ -1,0 +1,10 @@
+[ 01:17:22 ] cl1: killall -9 ping
+[ 01:17:22 ] cl2: killall -9 ping
+[ 01:17:23 ] cl2: ping 100.100.100.10
+[ 01:17:33 ] cl1: ping 192.168.241.11
+[ 01:18:57 ] cl2: killall -9 ping
+[ 01:19:03 ] cl1: killall -9 ping
+[ 01:19:04 ] cl1: ping 192.168.241.11
+[ 01:19:14 ] cl2: ping 100.100.100.10
+[ 01:20:38 ] cl1: killall -9 ping
+[ 01:20:43 ] cl2: killall -9 ping
