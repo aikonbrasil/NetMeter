@@ -106,6 +106,12 @@ To run this scenario, the user should use the following script: `NetMeter_latenc
 
 Note: NTP server should be activated in order to syncronize the time clock of each device used in the measurement.
 
+### 5.Multiple Tests (non simultaneously) between different pair of PCs to evaluate RTT (ICMP packets).
+To run this scenario, the user should use the following script: `NetMeter_ping_multiple.py` and parameters should be configures in `NetMeterPingMultipleConfig.py`
+
+### 6.Multiple Tests (simultaneously) between different pair of PCs to evaluate RTT (ICMP packets). Probably with same results than section 5.
+To run this scenario, the user should use the following script: `NetMeter_ping_multiple_simultaneously.py` and parameters should be configures in `NetMeterPingMultipleConfig.py`
+
 ## Running:
 
 After obtaining all the prerequisites and configuring the network devices on the clients, just run `python3 NetMeter.py`. If all is correct, it will present you with the progress, and after all the tests will run, an html page with a summary of all the results will appear in the designated output directory, in subdirectories named by the time when the run began, the protocol, and the number of streams.
