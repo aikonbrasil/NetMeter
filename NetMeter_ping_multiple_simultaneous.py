@@ -845,7 +845,7 @@ def stop_client(conn, dir_time):
     sleep(5)
 
 
-def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
+def run_tests(cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime, p_sizes,
               streams, timestamp, test_title, protocol, tcpwin, export_dir):
     series_time = str(timedelta(seconds = 2 * len(p_sizes) * (runtime + 30) + 20))
     tprint('\033[92mStarting ' + protocol + ' tests.\033[0m Expected run time: ' + series_time)
@@ -868,8 +868,8 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
         localpart = False
 
     connlist = [
-                [cl1_conn, cl2_conn, 'one2two', cl2_test_ip, cl1_test_ip, one2two_images, 'Plotting cl1 --> cl2 summary...'],
-                [cl2_conn, cl1_conn, 'two2one', cl1_test_ip, cl2_test_ip, two2one_images, 'Plotting cl2 --> cl1 summary...']
+                [cl1_conn, cl2_conn, 'one2two', cl2_test_ipp, cl1_test_ipp, one2two_images, 'Plotting cl1 --> cl2 summary...'],
+                [cl2_conn, cl1_conn, 'two2one', cl1_test_ipp, cl2_test_ipp, two2one_images, 'Plotting cl2 --> cl1 summary...']
                ]
     for c in connlist:
         [client_conn, server_conn, direction, server_addr, server_addr2, image_list, plot_message] = c
@@ -977,12 +977,12 @@ def run_tests(cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime, p_sizes,
 
 
 class Multitest(object):
-    def __init__(self, cl1_conn, cl2_conn, cl1_test_ip, cl2_test_ip, runtime,
+    def __init__(self, cl1_conn, cl2_conn, cl1_test_ipp, cl2_test_ipp, runtime,
                  p_sizes, timestamp, test_title, tcpwin, export_dir):
         self.cl1_conn    = cl1_conn
         self.cl2_conn    = cl2_conn
-        self.cl1_test_ip = cl1_test_ip
-        self.cl2_test_ip = cl2_test_ip
+        self.cl1_test_ipp = cl1_test_ipp
+        self.cl2_test_ipp = cl2_test_ipp
         self.runtime     = runtime
         self.p_sizes     = p_sizes
         self.timestamp   = timestamp
@@ -992,8 +992,8 @@ class Multitest(object):
 
     def run_tests_for_protocols(self, streams, proto_list):
         for p in proto_list:
-            run_tests(self.cl1_conn, self.cl2_conn, self.cl1_test_ip,
-                      self.cl2_test_ip, self.runtime, self.p_sizes, streams,
+            run_tests(self.cl1_conn, self.cl2_conn, self.cl1_test_ipp,
+                      self.cl2_test_ipp, self.runtime, self.p_sizes, streams,
                       self.timestamp, self.test_title, p, self.tcpwin,
                       self.export_dir)
 
