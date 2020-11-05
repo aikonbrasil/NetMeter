@@ -97,12 +97,12 @@ To run this scenario, the user should use the following script: `NetMeter_simult
 Note: if ARM architecture is used in the remote nodes, the script only works on TCP Mode.
 
 ### 3.Multiple Tests (non simultaneously) between different pair of PCs to evaluate Latency.
-To run this scenario, the user should use the following script: `NetMeter_latency_multiple.py` and parameters should be configures in `NetMeterMultipleConfig.py`
+To run this scenario, the user should use the following script: `NetMeter_latency_multiple.py` and parameters should be configures in `NetMeterMultipleLatencyConfig.py`
 
 Note: NTP server should be activated in order to syncronize the time clock of each device used in the measurement.
 
 ### 4.Multiple Tests (simultaneously) between different pair of PCs to evaluate Latency.
-To run this scenario, the user should use the following script: `NetMeter_latency_simultaneous.py` and parameters should be configures in `NetMeterConfigSimul.py`
+To run this scenario, the user should use the following script: `NetMeter_latency_simultaneous.py` and parameters should be configures in `NetMeterConfigSimulLatency.py`
 
 Note: NTP server should be activated in order to syncronize the time clock of each device used in the measurement.
 
