@@ -21,7 +21,7 @@ from os.path import isdir, isfile, join
 from ntpath import dirname, basename
 
 # Import configuration
-from NetMeterMultipleConfig import *
+from NetMeterMultipleLatencyConfig import *
 
 #rundate = datetime.now().strftime('%Y_%m_%d_%H-%M-%S')
 
