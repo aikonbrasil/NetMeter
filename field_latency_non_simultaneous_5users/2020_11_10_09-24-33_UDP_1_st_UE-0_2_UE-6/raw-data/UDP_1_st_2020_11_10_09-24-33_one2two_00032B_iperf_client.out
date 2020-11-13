@@ -1,0 +1,12 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.11, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 11215.21 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  3] local 100.100.100.10 port 58169 connected with 192.168.241.11 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  3]  0.0-10801.0 sec  1.32 GBytes  1.05 Mbits/sec
+[  3] Sent 963068 datagrams
+[  3] Server Report:
+[  3] 0.0000-10801.0086 sec  1.32 GBytes  1.05 Mbits/sec   0.951 ms    0/963068 (0%) 20.236/ 7.579/434.650/ 0.047 ms   89 pps  6.48
+[  3] 0.0000-10801.0086 sec  3 datagrams received out-of-order
