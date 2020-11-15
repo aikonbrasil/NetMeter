@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.12, TCP port 5002
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  9] local 100.100.100.10 port 44074 connected with 192.168.241.12 port 5002
+[  5] local 100.100.100.10 port 44064 connected with 192.168.241.12 port 5002
+[ 10] local 100.100.100.10 port 44076 connected with 192.168.241.12 port 5002
+[  8] local 100.100.100.10 port 44072 connected with 192.168.241.12 port 5002
+[  7] local 100.100.100.10 port 44070 connected with 192.168.241.12 port 5002
+[  6] local 100.100.100.10 port 44068 connected with 192.168.241.12 port 5002
+[  4] local 100.100.100.10 port 44066 connected with 192.168.241.12 port 5002
+[  3] local 100.100.100.10 port 44062 connected with 192.168.241.12 port 5002
+[ ID] Interval       Transfer     Bandwidth
+[  5]  0.0-21601.1 sec  3.95 GBytes  1.57 Mbits/sec
+[  6]  0.0-21601.4 sec  3.98 GBytes  1.58 Mbits/sec
+[ 10]  0.0-21601.4 sec  3.97 GBytes  1.58 Mbits/sec
+[  8]  0.0-21601.6 sec  3.94 GBytes  1.57 Mbits/sec
+[  7]  0.0-21601.7 sec  3.95 GBytes  1.57 Mbits/sec
+[  3]  0.0-21601.9 sec  3.94 GBytes  1.57 Mbits/sec
+[  4]  0.0-21602.1 sec  3.94 GBytes  1.57 Mbits/sec
+[  9]  0.0-21602.6 sec  3.94 GBytes  1.57 Mbits/sec
+[SUM]  0.0-21602.6 sec  31.6 GBytes  12.6 Mbits/sec
