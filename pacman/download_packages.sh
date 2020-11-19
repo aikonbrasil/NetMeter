@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ARCH="x86_64"
+ARCH="armv7l"
 MIRROR="http://arch.mirror.far.fi/"
 
 wget "${MIRROR}/community/os/${ARCH}/community.db"
