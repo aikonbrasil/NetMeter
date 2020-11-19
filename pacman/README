@@ -1,0 +1,39 @@
+IN THE DEVICE WITHOUT INTERNET:
+
+  294  sudo mv *.db /var/lib/pacman/sync/
+  295  sudo pacman -Sp --noconfirm elinks > pkglist
+  296  cat pkglist
+  297  pwd
+  298  ls
+  299  exit
+  300  ls
+  301  sudo mv *.pkg.tar.xz /var/cache/pacman/pkg
+  302  ls
+  303  sudo pacman -S elinks
+
+
+
+
+
+ IN THE DEVICE WITH INTERNET:
+
+  540  git pull
+  541  chmod a+x download_packages.sh
+  542  ./download_packages.sh
+  543  ls
+  544  scp *.db r@192.168.241.11:/var/lib/pacman/sync/
+  545  cp *.db rclear@192.168.241.11:/var/lib/pacman/sync/
+  546  clear
+  547  scp *.db lut@192.168.241.11:/home/lut
+  548  ssh lut@192.168.241.11
+  549  scp lut@192.168.241.11:/home/lut/pkglist .
+  550  ls
+  551  git add pkglist
+  552  git commit -m "adding info to pacman update"
+  553  git push
+  554  mkdir elinks_files_installation
+  555  cd elinks_files_installation/
+  556  wget -nv -i ../pkglist
+  557  ls
+  558  scp *.pkg.tar.xz lut@192.168.241.11:/home/lut
+  559  ssh lut@192.168.241.11
