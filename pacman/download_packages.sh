@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARCH="armv7l"
-MIRROR="http://arch.mirror.far.fi/"
+MIRROR="https://mirror.pseudoform.org/"
 
 wget "${MIRROR}/community/os/${ARCH}/community.db"
 wget "${MIRROR}/core/os/${ARCH}/core.db"
