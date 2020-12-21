@@ -1,0 +1,12 @@
+------------------------------------------------------------
+Client connecting to 100.100.100.10, TCP port 5004
+TCP window size: 43.8 KByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.241.14 port 45010 connected with 100.100.100.10 port 5004
+[  5] local 192.168.241.14 port 45000 connected with 100.100.100.10 port 5004
+[  3] local 192.168.241.14 port 44998 connected with 100.100.100.10 port 5004
+[  6] local 192.168.241.14 port 45002 connected with 100.100.100.10 port 5004
+[  9] local 192.168.241.14 port 45008 connected with 100.100.100.10 port 5004
+[  7] local 192.168.241.14 port 45004 connected with 100.100.100.10 port 5004
+[  8] local 192.168.241.14 port 45006 connected with 100.100.100.10 port 5004
+[  4] local 192.168.241.14 port 44996 connected with 100.100.100.10 port 5004

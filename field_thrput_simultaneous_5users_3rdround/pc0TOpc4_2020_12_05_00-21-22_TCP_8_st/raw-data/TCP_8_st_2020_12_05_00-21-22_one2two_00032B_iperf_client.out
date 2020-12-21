@@ -1,0 +1,22 @@
+------------------------------------------------------------
+Client connecting to 192.168.241.14, TCP port 5004
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[ 10] local 100.100.100.10 port 37202 connected with 192.168.241.14 port 5004
+[  7] local 100.100.100.10 port 37196 connected with 192.168.241.14 port 5004
+[  3] local 100.100.100.10 port 37188 connected with 192.168.241.14 port 5004
+[  4] local 100.100.100.10 port 37192 connected with 192.168.241.14 port 5004
+[  6] local 100.100.100.10 port 37194 connected with 192.168.241.14 port 5004
+[  5] local 100.100.100.10 port 37190 connected with 192.168.241.14 port 5004
+[  8] local 100.100.100.10 port 37198 connected with 192.168.241.14 port 5004
+[  9] local 100.100.100.10 port 37200 connected with 192.168.241.14 port 5004
+[ ID] Interval       Transfer     Bandwidth
+[  8]  0.0-21601.3 sec  1.69 GBytes   671 Kbits/sec
+[  6]  0.0-21601.4 sec  1.66 GBytes   660 Kbits/sec
+[  9]  0.0-21601.5 sec  1.71 GBytes   679 Kbits/sec
+[ 10]  0.0-21602.0 sec  1.68 GBytes   667 Kbits/sec
+[  7]  0.0-21602.4 sec  1.70 GBytes   677 Kbits/sec
+[  4]  0.0-21603.4 sec  1.71 GBytes   679 Kbits/sec
+[  3]  0.0-21603.5 sec  1.69 GBytes   674 Kbits/sec
+[  5]  0.0-21604.1 sec  1.68 GBytes   667 Kbits/sec
+[SUM]  0.0-21604.1 sec  13.5 GBytes  5.37 Mbits/sec
